@@ -11,19 +11,16 @@
    - "Create repository" klicken
 
 3. Im Projektordner (wedding-project) folgende Befehle ausführen:
-   (Cursor: Terminal öffnen mit Strg+ö, dann in den Ordner wechseln)
+   (Cursor: Terminal öffnen mit Strg+ö)
 
    cd "C:\Users\nazan\OneDrive\Dokumente\nanil369\Wedding_Project\wedding-project"
 
-   git init
-   git add .
-   git commit -m "Armada Wedding-Projekt mit Ayla"
    git branch -M main
    git remote add origin https://github.com/DEIN-BENUTZERNAME/DEIN-REPO-NAME.git
    git push -u origin main
 
-   DEIN-BENUTZERNAME und DEIN-REPO-NAME durch deine GitHub-Daten ersetzen!
-   (Die URL steht auf der GitHub-Seite nach dem Erstellen des Repos.)
+   (Commit ist schon erstellt. DEIN-BENUTZERNAME und DEIN-REPO-NAME ersetzen!
+    Die URL siehst du auf GitHub nach dem Erstellen des Repos.)
 
 4. Falls GitHub nach Passwort fragt: Access Token verwenden
    (GitHub → Settings → Developer settings → Personal access tokens).
