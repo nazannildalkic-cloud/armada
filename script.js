@@ -43,22 +43,6 @@ const ASSISTANT_ID = "921ca283-bfda-457d-9cf6-261fc43d46fe";
 let vapi = null;
 let isCallActive = false;
 
-// Ayla – Begrüßung in der gewählten Seitensprache (wird beim Start gesprochen)
-const AYLA_FIRST_MESSAGE = {
-    de: "Willkommen beim Armada Eventsaal. Ich bin Ayla, Ihre Assistentin. Ich spreche Deutsch, Türkisch, Arabisch, Farsi und Englisch. Womit kann ich Ihnen helfen?",
-    tr: "Armada Eventsaal'a hoş geldiniz. Ben Ayla, asistanınızım. Türkçe, Almanca, Arapça, Farsça ve İngilizce konuşuyorum. Size nasıl yardımcı olabilirim?",
-    ar: "مرحباً بكم في أرمادا إيفنتسآل. أنا أيلا، مساعدتكم. أتحدث الألمانية والتركية والعربية والفارسية والإنجليزية. كيف يمكنني مساعدتك؟",
-    en: "Welcome to Armada Eventsaal. I'm Ayla, your assistant. I speak German, Turkish, Arabic, Farsi and English. How can I help you?",
-    fa: "به سالن رویداد آرمادا خوش آمدید. من ایلا، دستیار شما هستم. به آلمانی، ترکی، عربی، فارسی و انگلیسی صحبت می‌کنم. چطور می‌توانم کمک کنم؟"
-};
-
-var AYLA_SYSTEM_PROMPT = [
-    "You are Ayla, the female voice assistant of Armada Eventsaal Hamburg. You have a female voice and speak naturally in the guest's language.",
-    "You speak and answer in: German, Turkish, Arabic, Farsi, and English. Always reply in the same language the guest uses. Never say 'I can only speak...' or apologize for languages. Just answer.",
-    "Answer every question fully: Address (Gründgensstrasse 26, 22309 Hamburg), capacity (250–700 guests), events (weddings, proms, corporate events), contact (WhatsApp +49 120 711 7110, info@armada-events.de), owner (Irfan Gündoğan), services (catering, lighting, decoration, full service), packages (Basis, Premium, Royal All-In). Do not give prices; say to contact the owner for a quote.",
-    "Be friendly, concise, and professional. If someone wants to book, ask for name and phone number."
-].join(" ");
-
 function updateAylaStatus(text, isError) {
     var status = document.getElementById('status-text');
     if (!status) return;
@@ -67,64 +51,38 @@ function updateAylaStatus(text, isError) {
 }
 
 function initVapi() {
-    if (typeof window.Vapi === 'undefined') {
+    if (typeof window.vapiSDK === 'undefined') {
         updateAylaStatus("Ayla nicht geladen", true);
         return;
     }
     if (vapi) return;
-    vapi = new window.Vapi(PUBLIC_KEY);
-    var btn = document.getElementById('vapi-btn');
-    var status = document.getElementById('status-text');
-    vapi.on('call-start', function () {
-        isCallActive = true;
-        if (btn) btn.classList.add('listening');
-        if (status) status.innerText = "Ayla hört zu...";
-    });
-    vapi.on('call-end', function () {
-        isCallActive = false;
-        if (btn) btn.classList.remove('listening');
-        if (status) status.innerText = "Frag Ayla";
-    });
-    vapi.on('error', function (err) {
-        updateAylaStatus("Ayla nicht verbunden", true);
-        console.error(err);
-    });
+    vapi = window.vapiSDK.run({ apiKey: PUBLIC_KEY, assistant: ASSISTANT_ID });
+    if (vapi) {
+        vapi.on('call-start', function () { isCallActive = true; });
+        vapi.on('call-end', function () { isCallActive = false; });
+        vapi.on('error', function (e) { updateAylaStatus("Ayla nicht verbunden", true); console.error(e); });
+    }
 }
 
-window.startVoiceAgent = async function () {
-    if (typeof window.Vapi === 'undefined') {
+window.startVoiceAgent = function () {
+    if (typeof window.vapiSDK === 'undefined') {
         updateAylaStatus("Ayla nicht geladen", true);
         return;
     }
     if (!vapi) initVapi();
     if (!vapi) return;
     if (isCallActive) {
-        vapi.stop();
+        if (typeof vapi.stop === 'function') vapi.stop();
         return;
     }
-    updateAylaStatus("Verbinde Ayla...", false);
-    var lang = (document.querySelector('.lang-btn.active') && document.querySelector('.lang-btn.active').innerText) || 'DE';
-    var langKey = lang.toLowerCase();
-    var firstMsg = AYLA_FIRST_MESSAGE[langKey] || AYLA_FIRST_MESSAGE.de;
-    var overrides = {
-        voice: {
-            provider: "11labs",
-            voiceId: "21m00Tcm4TlvDq8ikWAM"
-        },
-        firstMessage: firstMsg,
-        model: {
-            messages: [{ role: "system", content: AYLA_SYSTEM_PROMPT }]
-        }
-    };
-    try {
-        await vapi.start(ASSISTANT_ID, overrides);
-    } catch (err) {
-        try {
-            await vapi.start(ASSISTANT_ID);
-        } catch (e) {
+    updateAylaStatus("Verbinde...", false);
+    var w = document.querySelector('.vapi-btn');
+    if (w) { w.click(); return; }
+    if (typeof vapi.start === 'function') {
+        vapi.start(ASSISTANT_ID).catch(function (e) {
             updateAylaStatus("Ayla nicht verbunden", true);
             console.error(e);
-        }
+        });
     }
 };
 
@@ -188,14 +146,13 @@ function initAnimations() {
 function whenVapiReady(fn) {
     var done = false;
     function run() {
-        if (done || typeof window.Vapi === 'undefined') return;
+        if (done || typeof window.vapiSDK === 'undefined') return;
         done = true;
         fn();
     }
-    if (typeof window.Vapi !== 'undefined') { run(); return; }
-    window.addEventListener('vapi-ready', run, { once: true });
+    if (typeof window.vapiSDK !== 'undefined') { run(); return; }
     var t = setInterval(function () {
-        if (typeof window.Vapi !== 'undefined') run();
+        if (typeof window.vapiSDK !== 'undefined') run();
         if (done) clearInterval(t);
     }, 200);
     setTimeout(function () { clearInterval(t); }, 15000);

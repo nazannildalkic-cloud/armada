@@ -1,0 +1,24 @@
+============================================
+  WENN ES NICHT GEHT – NUR DIESE 3 DINGE PRÜFEN
+============================================
+
+1. SEITE ÜBER SERVER ÖFFNEN
+   Nicht Doppelklick auf index.html.
+   Immer: Server-starten.bat starten ODER Live Server,
+   dann im Browser: http://localhost:8000 (oder die angezeigte Adresse).
+
+2. ZWEI BUTTONS SICHTBAR?
+   Es gibt "Frag Ayla" (unser Button) und einen runden Button (VAPI).
+   Beide starten Eila. Einfach auf einen der beiden klicken.
+   Wenn keiner erscheint: Seite mit Strg+F5 neu laden, 5 Sekunden warten.
+
+3. EILA SAGT "I DON'T UNDERSTAND" / FALSCHE SPRACHE?
+   Das kann NUR im VAPI-Dashboard geändert werden – die Webseite kann den Prompt nicht setzen.
+   Einmal machen: dashboard.vapi.ai → deinen Assistenten öffnen →
+   Model / Instructions / System Prompt → alles löschen →
+   den kompletten Text aus der Datei "EILA-STIMME-UND-PROMPT-IM-DASHBOARD.txt" (zwischen den ---) reinkopieren → Speichern.
+   Danach antwortet Eila in deiner Sprache und sagt nicht mehr "I don't understand".
+
+============================================
+Keys (stehen in script.js): Public Key und Assistant ID müssen genau so im VAPI-Dashboard stehen. Wenn du dort andere Werte hast, in script.js Zeile 41–42 anpassen.
+============================================

@@ -7,21 +7,7 @@
     <title>ARMADA EVENTSAAL | Unvergessliche Events in Hamburg</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <script type="module">
-        (function () {
-            async function loadVapi() {
-                try {
-                    var m = await import('https://esm.sh/@vapi-ai/web@2.5.2');
-                    window.Vapi = m.default;
-                    window.dispatchEvent(new Event('vapi-ready'));
-                } catch (e) {
-                    console.error('VAPI SDK:', e);
-                    window.dispatchEvent(new Event('vapi-ready'));
-                }
-            }
-            loadVapi();
-        })();
-    </script>
+    <script src="https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js" defer></script>
 </head>
 
 <body>

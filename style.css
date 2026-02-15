@@ -633,7 +633,9 @@ footer a {
     }
 }
 
-/* VAPI-Widget-Button ausblenden – wir nutzen unseren „Frag Eila“-Button */
+/* Beide sichtbar: "Frag Ayla" + runder VAPI-Button. Einer davon muss die Verbindung starten */
 .vapi-btn {
-    display: none !important;
+    bottom: 1.5rem !important;
+    right: 6rem !important;
+    z-index: 9998 !important;
 }

@@ -1,28 +1,48 @@
 ============================================
-  PROJEKT BEI GITHUB HOCHLADEN
+  ARMADA AUF GITHUB HOCHLADEN
 ============================================
+Das Repo "armada" existiert noch nicht auf GitHub – du erstellst es einmal, dann lädst du den Code hoch.
 
-1. Auf https://github.com einloggen.
+--------------------------------------------
+SCHRITT 1: Repo auf GitHub anlegen
+--------------------------------------------
+1. Im Browser öffnen:
+   https://github.com/new
 
-2. Neues Repository erstellen:
-   - Klick auf "+" → "New repository"
-   - Name: armada
-   - Public, OHNE README (wir haben schon eines)
-   - "Create repository" klicken
+2. Ausfüllen:
+   - Repository name:  armada
+   - Public
+   - KEIN Häkchen bei "Add a README file"
+   - Auf "Create repository" klicken
 
-3. Im Projektordner (wedding-project) folgende Befehle ausführen:
-   (Cursor: Terminal öffnen mit Strg+ö)
+3. GitHub zeigt dir danach eine Seite mit Befehlen – die nächsten Schritte machst du trotzdem wie unten (in Cursor/Terminal).
+
+--------------------------------------------
+SCHRITT 2: In Cursor Terminal (Strg+ö)
+--------------------------------------------
+Diese drei Zeilen nacheinander ausführen.
+Ersetze DEIN-GITHUB-NAME durch deinen echten GitHub-Benutzernamen (z.B. nanil369 oder dein Login):
 
    cd "C:\Users\nazan\OneDrive\Dokumente\nanil369\Wedding_Project\wedding-project"
-
+   git remote add origin https://github.com/DEIN-GITHUB-NAME/armada.git
    git branch -M main
-   git remote add origin https://github.com/DEIN-BENUTZERNAME/armada.git
    git push -u origin main
 
-   (Commit ist schon erstellt. Nur DEIN-BENUTZERNAME durch deinen GitHub-Namen ersetzen.
-    Repo-Name ist: armada)
+Beispiel: Wenn dein GitHub-Name "nanil369" ist:
+   git remote add origin https://github.com/nanil369/armada.git
+   git branch -M main
+   git push -u origin main
 
-4. Falls GitHub nach Passwort fragt: Access Token verwenden
-   (GitHub → Settings → Developer settings → Personal access tokens).
+--------------------------------------------
+Wenn nach Passwort gefragt wird
+--------------------------------------------
+GitHub erlaubt kein normales Passwort mehr. Du brauchst einen Personal Access Token:
+1. GitHub → rechts oben Profilbild → Settings
+2. Links unten: Developer settings → Personal access tokens → Tokens (classic)
+3. "Generate new token" → Name z.B. "armada" → Häkchen bei "repo"
+4. Token kopieren und beim "git push" als Passwort einfügen
 
+============================================
+Fertig: Dann siehst du das Projekt unter
+https://github.com/DEIN-GITHUB-NAME/armada
 ============================================
