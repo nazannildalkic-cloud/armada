@@ -43,17 +43,24 @@ const ASSISTANT_ID = "921ca283-bfda-457d-9cf6-261fc43d46fe";
 let vapi = null;
 let isCallActive = false;
 
-// Aylas erste Begrüßung je nach gewählter Seitensprache
+// Ayla – Begrüßung in der gewählten Seitensprache (wird beim Start gesprochen)
 const AYLA_FIRST_MESSAGE = {
-    de: "Willkommen. Ich bin Ayla. Ich spreche Deutsch, Türkisch, Arabisch und Farsi. Womit kann ich helfen?",
-    tr: "Hoş geldiniz. Ben Ayla. Türkçe, Almanca, Arapça ve Farsça konuşuyorum. Size nasıl yardımcı olabilirim?",
-    ar: "مرحباً. أنا أيلا. أتحدث الألمانية والتركية والعربية والفارسية. كيف يمكنني مساعدتك؟",
-    en: "Welcome. I'm Ayla. I speak German, Turkish, Arabic and Farsi. How can I help you?",
-    fa: "خوش آمدید. من ایلا هستم. به آلمانی، ترکی، عربی و فارسی صحبت می‌کنم. چطور می‌توانم کمک کنم؟"
+    de: "Willkommen beim Armada Eventsaal. Ich bin Ayla, Ihre Assistentin. Ich spreche Deutsch, Türkisch, Arabisch, Farsi und Englisch. Womit kann ich Ihnen helfen?",
+    tr: "Armada Eventsaal'a hoş geldiniz. Ben Ayla, asistanınızım. Türkçe, Almanca, Arapça, Farsça ve İngilizce konuşuyorum. Size nasıl yardımcı olabilirim?",
+    ar: "مرحباً بكم في أرمادا إيفنتسآل. أنا أيلا، مساعدتكم. أتحدث الألمانية والتركية والعربية والفارسية والإنجليزية. كيف يمكنني مساعدتك؟",
+    en: "Welcome to Armada Eventsaal. I'm Ayla, your assistant. I speak German, Turkish, Arabic, Farsi and English. How can I help you?",
+    fa: "به سالن رویداد آرمادا خوش آمدید. من ایلا، دستیار شما هستم. به آلمانی، ترکی، عربی، فارسی و انگلیسی صحبت می‌کنم. چطور می‌توانم کمک کنم؟"
 };
 
+var AYLA_SYSTEM_PROMPT = [
+    "You are Ayla, the female voice assistant of Armada Eventsaal Hamburg. You have a female voice and speak naturally in the guest's language.",
+    "You speak and answer in: German, Turkish, Arabic, Farsi, and English. Always reply in the same language the guest uses. Never say 'I can only speak...' or apologize for languages. Just answer.",
+    "Answer every question fully: Address (Gründgensstrasse 26, 22309 Hamburg), capacity (250–700 guests), events (weddings, proms, corporate events), contact (WhatsApp +49 120 711 7110, info@armada-events.de), owner (Irfan Gündoğan), services (catering, lighting, decoration, full service), packages (Basis, Premium, Royal All-In). Do not give prices; say to contact the owner for a quote.",
+    "Be friendly, concise, and professional. If someone wants to book, ask for name and phone number."
+].join(" ");
+
 function updateAylaStatus(text, isError) {
-    const status = document.getElementById('status-text');
+    var status = document.getElementById('status-text');
     if (!status) return;
     status.innerText = text;
     status.style.color = isError ? "#FF5252" : "";
@@ -66,24 +73,21 @@ function initVapi() {
     }
     if (vapi) return;
     vapi = new window.Vapi(PUBLIC_KEY);
-    const btn = document.getElementById('vapi-btn');
-    const status = document.getElementById('status-text');
-
-    vapi.on('call-start', () => {
+    var btn = document.getElementById('vapi-btn');
+    var status = document.getElementById('status-text');
+    vapi.on('call-start', function () {
         isCallActive = true;
-        btn.classList.add('listening');
-        status.innerText = "Ayla hört zu...";
+        if (btn) btn.classList.add('listening');
+        if (status) status.innerText = "Ayla hört zu...";
     });
-
-    vapi.on('call-end', () => {
+    vapi.on('call-end', function () {
         isCallActive = false;
-        btn.classList.remove('listening');
-        status.innerText = "Frag Ayla";
+        if (btn) btn.classList.remove('listening');
+        if (status) status.innerText = "Frag Ayla";
     });
-
-    vapi.on('error', (error) => {
+    vapi.on('error', function (err) {
         updateAylaStatus("Ayla nicht verbunden", true);
-        console.error(error);
+        console.error(err);
     });
 }
 
@@ -93,24 +97,35 @@ window.startVoiceAgent = async function () {
         return;
     }
     if (!vapi) initVapi();
-    if (!isCallActive) {
-        updateAylaStatus("Verbinde Ayla...", false);
-        var prompt = "Du bist Ayla, die weibliche digitale Assistentin des Armada Eventsaal Hamburg. Du sprichst Deutsch, Türkisch, Arabisch, Farsi und Englisch. Antworte immer in der Sprache, in der der Gast spricht. WICHTIG: Sage NIEMALS 'Ich kann nur Deutsch/Türkisch...' oder 'I can only speak...' oder entschuldige dich für Sprachen. Beantworte die Frage des Gastes direkt: Öffnungszeiten, Lage, Kapazität, Events, Kontakt. Du kennst: Gründgensstrasse 26, Hamburg, 250–700 Gäste, Hochzeiten, Abibälle, Firmenevents, Inhaber Irfan Gündoğan. Keine Preise – verweise auf Inhaber. Kontakt: WhatsApp +49 120 711 7110, info@armada-events.de. Sei freundlich, frage nach Namen und Telefon wenn jemand buchen will.";
-        var overrides = {
-            model: { messages: [{ role: "system", content: prompt }] },
-            voice: { provider: "11labs", voiceId: "Rachel" }
-        };
-        try {
-            await vapi.start(ASSISTANT_ID, overrides);
-        } catch (err) {
-            try {
-                await vapi.start(ASSISTANT_ID);
-            } catch (e) {
-                updateAylaStatus("Ayla nicht verbunden", true);
-                console.error(e);
-            }
+    if (!vapi) return;
+    if (isCallActive) {
+        vapi.stop();
+        return;
+    }
+    updateAylaStatus("Verbinde Ayla...", false);
+    var lang = (document.querySelector('.lang-btn.active') && document.querySelector('.lang-btn.active').innerText) || 'DE';
+    var langKey = lang.toLowerCase();
+    var firstMsg = AYLA_FIRST_MESSAGE[langKey] || AYLA_FIRST_MESSAGE.de;
+    var overrides = {
+        voice: {
+            provider: "11labs",
+            voiceId: "21m00Tcm4TlvDq8ikWAM"
+        },
+        firstMessage: firstMsg,
+        model: {
+            messages: [{ role: "system", content: AYLA_SYSTEM_PROMPT }]
         }
-    } else { vapi.stop(); }
+    };
+    try {
+        await vapi.start(ASSISTANT_ID, overrides);
+    } catch (err) {
+        try {
+            await vapi.start(ASSISTANT_ID);
+        } catch (e) {
+            updateAylaStatus("Ayla nicht verbunden", true);
+            console.error(e);
+        }
+    }
 };
 
 // --- WHATSAPP CONFIG (CALLMEBOT) ---
@@ -177,10 +192,7 @@ function whenVapiReady(fn) {
         done = true;
         fn();
     }
-    if (typeof window.Vapi !== 'undefined') {
-        run();
-        return;
-    }
+    if (typeof window.Vapi !== 'undefined') { run(); return; }
     window.addEventListener('vapi-ready', run, { once: true });
     var t = setInterval(function () {
         if (typeof window.Vapi !== 'undefined') run();

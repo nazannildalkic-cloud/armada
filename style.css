@@ -632,3 +632,8 @@ footer a {
         min-height: 260px;
     }
 }
+
+/* VAPI-Widget-Button ausblenden – wir nutzen unseren „Frag Eila“-Button */
+.vapi-btn {
+    display: none !important;
+}

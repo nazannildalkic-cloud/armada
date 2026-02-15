@@ -6,7 +6,7 @@
 
 2. Neues Repository erstellen:
    - Klick auf "+" → "New repository"
-   - Name: z.B. "wedding-project" oder "armada-eventsaal"
+   - Name: armada
    - Public, OHNE README (wir haben schon eines)
    - "Create repository" klicken
 
@@ -16,11 +16,11 @@
    cd "C:\Users\nazan\OneDrive\Dokumente\nanil369\Wedding_Project\wedding-project"
 
    git branch -M main
-   git remote add origin https://github.com/DEIN-BENUTZERNAME/DEIN-REPO-NAME.git
+   git remote add origin https://github.com/DEIN-BENUTZERNAME/armada.git
    git push -u origin main
 
-   (Commit ist schon erstellt. DEIN-BENUTZERNAME und DEIN-REPO-NAME ersetzen!
-    Die URL siehst du auf GitHub nach dem Erstellen des Repos.)
+   (Commit ist schon erstellt. Nur DEIN-BENUTZERNAME durch deinen GitHub-Namen ersetzen.
+    Repo-Name ist: armada)
 
 4. Falls GitHub nach Passwort fragt: Access Token verwenden
    (GitHub → Settings → Developer settings → Personal access tokens).

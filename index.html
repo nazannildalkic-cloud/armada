@@ -15,7 +15,7 @@
                     window.Vapi = m.default;
                     window.dispatchEvent(new Event('vapi-ready'));
                 } catch (e) {
-                    console.error('VAPI SDK konnte nicht geladen werden:', e);
+                    console.error('VAPI SDK:', e);
                     window.dispatchEvent(new Event('vapi-ready'));
                 }
             }
@@ -47,7 +47,7 @@
         <i class="fab fa-whatsapp"></i>
         <span>WhatsApp</span>
     </a>
-    <button id="vapi-btn" onclick="startVoiceAgent()">
+    <button id="vapi-btn" onclick="startVoiceAgent()" title="Mit Ayla sprechen">
         <i class="fas fa-microphone"></i>
         <span id="status-text">Frag Ayla</span>
     </button>

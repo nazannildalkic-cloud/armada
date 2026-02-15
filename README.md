@@ -1,6 +1,6 @@
-# Armada Eventsaal – Wedding Project
+# Armada
 
-Website für den Armada Eventsaal Hamburg mit Voice-Assistentin **Ayla** (VAPI), mehrsprachig (DE, TR, AR, EN, FA), Terminplaner und Galerie.
+Website für den **Armada Eventsaal** Hamburg mit Voice-Assistentin **Ayla** (VAPI), mehrsprachig (DE, TR, AR, EN, FA), Terminplaner und Galerie.
 
 ## Lokal starten
 
