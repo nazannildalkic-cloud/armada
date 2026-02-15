@@ -43,47 +43,36 @@ const ASSISTANT_ID = "921ca283-bfda-457d-9cf6-261fc43d46fe";
 let vapi = null;
 let isCallActive = false;
 
+var PROMPT = "You are Eila for Armada Hamburg. Always reply in the SAME language the guest uses: German to German, Turkish to Turkish. NEVER say 'I don\'t understand' or 'What would you like?' If you did not hear clearly, say ONCE: 'Bitte nochmal?' (German) or 'Tekrar eder misiniz?' (Turkish) then wait. Armada: Gründgensstrasse 26 Hamburg, 250-700 guests, weddings proms corporate. Contact +49 120 711 7110, info@armada-events.de. No prices. Be friendly and brief.";
+
 function updateAylaStatus(text, isError) {
-    var status = document.getElementById('status-text');
-    if (!status) return;
-    status.innerText = text;
-    status.style.color = isError ? "#FF5252" : "";
+    var s = document.getElementById('status-text');
+    if (s) { s.innerText = text; s.style.color = isError ? "#FF5252" : ""; }
 }
 
 function initVapi() {
-    if (typeof window.vapiSDK === 'undefined') {
-        updateAylaStatus("Ayla nicht geladen", true);
-        return;
-    }
+    if (typeof window.vapiSDK === 'undefined') { updateAylaStatus("Ayla nicht geladen", true); return; }
     if (vapi) return;
     vapi = window.vapiSDK.run({ apiKey: PUBLIC_KEY, assistant: ASSISTANT_ID });
+    var st = document.getElementById('status-text');
     if (vapi) {
-        vapi.on('call-start', function () { isCallActive = true; });
-        vapi.on('call-end', function () { isCallActive = false; });
-        vapi.on('error', function (e) { updateAylaStatus("Ayla nicht verbunden", true); console.error(e); });
+        vapi.on('call-start', function () { isCallActive = true; if (st) st.innerText = 'Ayla hört zu...'; });
+        vapi.on('call-end', function () { isCallActive = false; if (st) st.innerText = 'Frag Ayla'; });
+        vapi.on('error', function () { updateAylaStatus("Ayla nicht verbunden", true); });
     }
 }
 
-window.startVoiceAgent = function () {
-    if (typeof window.vapiSDK === 'undefined') {
-        updateAylaStatus("Ayla nicht geladen", true);
-        return;
-    }
+window.startVoiceAgent = async function () {
+    if (typeof window.vapiSDK === 'undefined') { updateAylaStatus("Ayla nicht geladen", true); return; }
     if (!vapi) initVapi();
     if (!vapi) return;
-    if (isCallActive) {
-        if (typeof vapi.stop === 'function') vapi.stop();
-        return;
-    }
+    if (isCallActive) { if (typeof vapi.stop === 'function') vapi.stop(); return; }
     updateAylaStatus("Verbinde...", false);
-    var w = document.querySelector('.vapi-btn');
-    if (w) { w.click(); return; }
-    if (typeof vapi.start === 'function') {
-        vapi.start(ASSISTANT_ID).catch(function (e) {
-            updateAylaStatus("Ayla nicht verbunden", true);
-            console.error(e);
-        });
-    }
+    var btn = document.querySelector('.vapi-btn');
+    if (btn) { btn.click(); return; }
+    try {
+        if (typeof vapi.start === 'function') await vapi.start(ASSISTANT_ID);
+    } catch (e) { updateAylaStatus("Ayla nicht verbunden", true); }
 };
 
 // --- WHATSAPP CONFIG (CALLMEBOT) ---
@@ -151,11 +140,8 @@ function whenVapiReady(fn) {
         fn();
     }
     if (typeof window.vapiSDK !== 'undefined') { run(); return; }
-    var t = setInterval(function () {
-        if (typeof window.vapiSDK !== 'undefined') run();
-        if (done) clearInterval(t);
-    }, 200);
-    setTimeout(function () { clearInterval(t); }, 15000);
+    var t = setInterval(function () { if (typeof window.vapiSDK !== 'undefined') run(); if (done) clearInterval(t); }, 300);
+    setTimeout(function () { clearInterval(t); }, 20000);
 }
 
 document.addEventListener('DOMContentLoaded', () => {

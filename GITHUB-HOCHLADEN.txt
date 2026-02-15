@@ -1,0 +1,31 @@
+========================================
+PROJEKT AUF GITHUB HOCHLADEN
+========================================
+
+SCHRITT 1: Auf GitHub (im Browser)
+----------------------------------
+1. Gehe zu: https://github.com/new
+2. Repository name: armada (oder ein anderer Name)
+3. Public auswählen
+4. NICHTS ankreuzen (kein README, keine .gitignore, keine Lizenz)
+5. Auf "Repository erstellen" klicken
+
+SCHRITT 2: In PowerShell (in DIESEM Ordner)
+-------------------------------------------
+Ordner öffnen:
+  cd "c:\Users\nazan\OneDrive\Dokumente\nanil369\Wedding_Project\wedding-project"
+
+Dann diese Befehle nacheinander ausführen.
+Dein GitHub-Name: nazannildalkic
+
+  git init
+  git add .
+  git commit -m "Armada Webseite mit Ayla"
+  git branch -M main
+  git remote add origin https://github.com/nazannildalkic/armada.git
+  git push -u origin main
+
+Hinweis: Beim ersten "git push" fragt der Browser evtl. nach Anmeldung bei GitHub.
+Falls du 2-Faktor-Authentifizierung hast, brauchst du evtl. ein Token statt Passwort.
+
+========================================

@@ -633,9 +633,7 @@ footer a {
     }
 }
 
-/* Beide sichtbar: "Frag Ayla" + runder VAPI-Button. Einer davon muss die Verbindung starten */
+/* Nur EIN Button sichtbar: "Frag Ayla". Widget-Button ausblenden */
 .vapi-btn {
-    bottom: 1.5rem !important;
-    right: 6rem !important;
-    z-index: 9998 !important;
+    display: none !important;
 }

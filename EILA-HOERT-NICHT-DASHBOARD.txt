@@ -1,0 +1,33 @@
+========================================
+EILA HÖRT FRAGEN NICHT – DASHBOARD ANPASSEN
+========================================
+
+Wenn Eila sich verbindet, aber immer sagt "Ich verstehe Sie nicht" / "Was hätten Sie gerne?", 
+liegt es oft an der SPracherkennung (Transcriber). Sie muss Deutsch und Türkisch verstehen.
+
+--- SCHRITT 1: VAPI DASHBOARD ÖFFNEN ---
+  https://dashboard.vapi.ai
+  Deinen Assistenten (Eila) auswählen.
+
+--- SCHRITT 2: TRANSCRIBER / SPracherkennung ---
+  Im Assistenten nach "Transcriber" oder "Speech-to-Text" / "STT" suchen.
+
+  Empfohlen:
+  - Provider: Deepgram
+  - Model: nova-2 oder nova-3
+  - Language: "multi" (mehrsprachig) ODER explizit "de" und ggf. "tr" wenn möglich.
+
+  Wenn du "Google" als Transcriber nutzt:
+  - Sprache auf "de-DE" (Deutsch) setzen oder mehrsprachig, falls angeboten.
+
+  Wichtig: Nicht auf "en" (nur Englisch) lassen – sonst versteht sie deutsche/türkische 
+  Sätze schlecht und antwortet mit "Ich verstehe nicht".
+
+--- SCHRITT 3: SPEICHERN ---
+  Assistent speichern und auf der Webseite nochmal testen.
+
+--- WENN DIE OPTION "multi" NICHT DA IST ---
+  Dann "de" (Deutsch) wählen. Für Gäste die Türkisch sprechen kann Eila trotzdem 
+  antworten; die Erkennung ist dann für Deutsch optimiert.
+
+========================================
