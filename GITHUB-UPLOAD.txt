@@ -1,0 +1,31 @@
+============================================
+  PROJEKT BEI GITHUB HOCHLADEN
+============================================
+
+1. Auf https://github.com einloggen.
+
+2. Neues Repository erstellen:
+   - Klick auf "+" → "New repository"
+   - Name: z.B. "wedding-project" oder "armada-eventsaal"
+   - Public, OHNE README (wir haben schon eines)
+   - "Create repository" klicken
+
+3. Im Projektordner (wedding-project) folgende Befehle ausführen:
+   (Cursor: Terminal öffnen mit Strg+ö, dann in den Ordner wechseln)
+
+   cd "C:\Users\nazan\OneDrive\Dokumente\nanil369\Wedding_Project\wedding-project"
+
+   git init
+   git add .
+   git commit -m "Armada Wedding-Projekt mit Ayla"
+   git branch -M main
+   git remote add origin https://github.com/DEIN-BENUTZERNAME/DEIN-REPO-NAME.git
+   git push -u origin main
+
+   DEIN-BENUTZERNAME und DEIN-REPO-NAME durch deine GitHub-Daten ersetzen!
+   (Die URL steht auf der GitHub-Seite nach dem Erstellen des Repos.)
+
+4. Falls GitHub nach Passwort fragt: Access Token verwenden
+   (GitHub → Settings → Developer settings → Personal access tokens).
+
+============================================

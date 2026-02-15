@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARMADA EVENTSAAL | Unvergessliche Events in Hamburg</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script type="module">
+        (function () {
+            async function loadVapi() {
+                try {
+                    var m = await import('https://esm.sh/@vapi-ai/web@2.5.2');
+                    window.Vapi = m.default;
+                    window.dispatchEvent(new Event('vapi-ready'));
+                } catch (e) {
+                    console.error('VAPI SDK konnte nicht geladen werden:', e);
+                    window.dispatchEvent(new Event('vapi-ready'));
+                }
+            }
+            loadVapi();
+        })();
+    </script>
+</head>
+
+<body>
+
+    <nav class="glass-nav">
+        <a href="#home" class="logo">ARMADA</a>
+        <ul class="nav-links">
+            <li><a href="#home" data-i18n="nav_home">Home</a></li>
+            <li><a href="#pakete" data-i18n="nav_packages">Konzepte</a></li>
+            <li><a href="#galerie" data-i18n="nav_gallery">Galerie</a></li>
+            <li><a href="#termin" data-i18n="nav_date">Termin</a></li>
+        </ul>
+        <div class="lang-switch">
+            <button onclick="switchLang('de')" class="lang-btn active">DE</button>
+            <button onclick="switchLang('tr')" class="lang-btn">TR</button>
+            <button onclick="switchLang('ar')" class="lang-btn">AR</button>
+            <button onclick="switchLang('en')" class="lang-btn">EN</button>
+            <button onclick="switchLang('fa')" class="lang-btn">FA</button>
+        </div>
+    </nav>
+
+    <a id="wa-btn" href="https://wa.me/491207117110" target="_blank" rel="noopener" title="WhatsApp: +49 1207117110">
+        <i class="fab fa-whatsapp"></i>
+        <span>WhatsApp</span>
+    </a>
+    <button id="vapi-btn" onclick="startVoiceAgent()">
+        <i class="fas fa-microphone"></i>
+        <span id="status-text">Frag Ayla</span>
+    </button>
+
+
+
+
+    <header id="home" class="hero">
+        <div class="slideshow">
+            <div class="slide active" style="background-image: url('assets/slide2.jpg.jpeg')"></div>
+            <div class="slide" style="background-image: url('assets/slide.jpg.jpeg')"></div>
+            <div class="slide" style="background-image: url('assets/slide15.jpg.jpeg')"></div>
+            <div class="slide" style="background-image: url('assets/slide14.jpg.jpeg')"></div>
+            <div class="slide" style="background-image: url('assets/slide5.jpg.jpeg')"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="royal-title" data-aos="fade-up" data-i18n="hero_title">Unvergessliche Momente.</h1>
+            <div class="divider-gold-center" data-aos="fade-up"></div>
+            <p data-aos="fade-up" data-i18n="hero_sub" data-aos-delay="200"
+                style="text-transform: uppercase; letter-spacing: 3px;">Exklusive Säle für Ihre Traumhochzeit &
+                Firmenevents.</p>
+            <div class="btn-group" data-aos="fade-up" data-aos-delay="400">
+                <a href="#termin" class="btn btn-primary" data-i18n="btn_date">Termin buchen</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </header>
+
+    <section class="section-pad">
+        <div class="container grid-2">
+            <div class="text-block" data-aos="fade-right">
+                <h2 class="serif" style="font-size:3rem;" data-i18n="about_title">Willkommen bei Armada</h2>
+                <div class="divider-gold"></div>
+                <p data-i18n="about_text" style="font-size:1.1rem; color:#666;">
+                    Erleben Sie Luxus in Perfektion. Ob Hochzeit, Abiball oder Firmenfeier – unsere drei prachtvollen
+                    Säle bieten den perfekten Rahmen für 250 bis 700 Gäste in Hamburg. Unser Team begleitet Sie von der
+                    ersten Planung bis zum finalen Tanz.
+                </p>
+                <div style="margin-top:20px;">
+                    <span class="signature">Irfan Gündoğan</span>
+                    <small style="opacity:0.6;">Inhaber & Gastgeber</small>
+                </div>
+                <div style="margin-top:40px; display:flex; gap:50px;">
+                    <div><span class="gold-text"
+                            style="font-size:3rem; font-weight:800;">3</span><br><small>Festsäle</small></div>
+                    <div><span class="gold-text" style="font-size:3rem; font-weight:800;">700</span><br><small>Max.
+                            Gäste</small></div>
+                </div>
+            </div>
+            <div class="img-block gold-frame" data-aos="fade-left">
+                <img src="assets/tischdeko.jpg.jpeg" alt="Armada Setup" style="width:100%;">
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SERVICES GRID -->
+    <section class="section-pad" style="background: white; border-top: 1px solid rgba(197, 160, 89, 0.1);">
+        <div class="container">
+            <div class="feature-grid">
+                <div class="feature-box" data-aos="fade-up">
+                    <i class="fas fa-utensils"></i>
+                    <h4>Premium Catering</h4>
+                    <p style="font-size:0.85rem; opacity:0.7;">Exzellente kulinarische Vielfalt nach Ihren Wünschen.</p>
+                </div>
+                <div class="feature-box" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-lightbulb"></i>
+                    <h4>Smart Lighting</h4>
+                    <i class="fas fa-magic" style="font-size:1rem; margin-top:5px; opacity:0.3;"></i>
+                    <p style="font-size:0.85rem; opacity:0.7;">Modernste Licht- und Tontechnik für jede Atmosphäre.</p>
+                </div>
+                <div class="feature-box" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-gem"></i>
+                    <h4>Exklusive Deko</h4>
+                    <p style="font-size:0.85rem; opacity:0.7;">Individuelle Gestaltungskonzepte auf höchstem Niveau.</p>
+                </div>
+                <div class="feature-box" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-shield-halved"></i>
+                    <h4>Full Service</h4>
+                    <p style="font-size:0.85rem; opacity:0.7;">Rundum-Sorglos-Planung für Ihren perfekten Tag.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERVIEW HIGHLIGHT -->
+    <section class="section-pad" style="background:var(--black); color:white;">
+        <div class="container text-center">
+            <h2 class="serif gold-text" style="font-size:3rem;" data-aos="fade-up">Das Armada Versprechen</h2>
+            <div class="divider-gold-center" data-aos="fade-up"></div>
+            <div class="video-card gold-frame" data-aos="zoom-in" style="max-width:900px; margin:0 auto;">
+                <video controls poster="assets/slide13.jpg.jpeg">
+                    <source src="assets/interwiev.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <section id="pakete" class="section-pad" style="background:var(--champagne);">
+        <div class="container">
+            <h2 class="serif text-center" style="font-size:3rem;" data-aos="fade-up" data-i18n="pack_title">Event
+                Konzepte</h2>
+            <div class="divider-gold-center" data-aos="fade-up"></div>
+            <div class="grid-3" style="margin-top:60px;">
+                <div class="concept-card" data-aos="fade-up">
+                    <h3 data-i18n="p1_title">Basis Konzept</h3>
+                    <div class="ornament">✧</div>
+                    <ul class="check-list">
+                        <li>Exklusive Saalmiete</li>
+                        <li>Professionelle Reinigung</li>
+                        <li>Dienstleister nach Wahl</li>
+                    </ul>
+                    <a href="#termin" style="color:var(--gold-dark); font-weight:700; text-decoration:none;">Anfragen
+                        →</a>
+                </div>
+                <div class="concept-card featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="featured-badge">BELIEBTESTE WAHL</div>
+                    <h3 data-i18n="p2_title">Premium Konzept</h3>
+                    <div class="ornament">✧</div>
+                    <ul class="check-list">
+                        <li>3-Gänge Galabuffet</li>
+                        <li>Getränkepauschale</li>
+                        <li>Servicepersonal Inkl.</li>
+                    </ul>
+                    <a href="#termin" class="btn btn-primary" style="padding: 12px 30px;">Jetzt Buchen</a>
+                </div>
+                <div class="concept-card" data-aos="fade-up" data-aos-delay="400">
+                    <h3 data-i18n="p3_title">Royal All-In</h3>
+                    <div class="ornament">✧</div>
+                    <ul class="check-list">
+                        <li>Full-Service Organisation</li>
+                        <li>Live Cooking Stationen</li>
+                        <li>Deko, DJ & Kamera-Team</li>
+                    </ul>
+                    <a href="#termin" style="color:var(--gold-dark); font-weight:700; text-decoration:none;">Anfragen
+                        →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMPRESSIONS / VIDEOS - RESTORED -->
+    <section class="section-pad" style="background: #F9F7F2;">
+        <div class="container">
+            <h2 data-i18n="vid_title" class="center-title serif" data-aos="fade-up">Impressionen</h2>
+            <div class="divider-gold-center" data-aos="fade-up"></div>
+            <div class="grid-3" style="margin-top:50px;">
+                <div class="video-card gold-frame" data-aos="zoom-in">
+                    <video controls src="assets/intro.mp4" style="width:100%"></video>
+                    <p style="text-align: center; margin-top: 15px; font-weight: 600; color: var(--gold-dark);">
+                        Highlight Intro</p>
+                </div>
+                <div class="video-card gold-frame" data-aos="zoom-in" data-aos-delay="200">
+                    <video controls src="assets/saal.mp4" style="width:100%"></video>
+                    <p style="text-align: center; margin-top: 15px; font-weight: 600; color: var(--gold-dark);">Saal
+                        Rundgang</p>
+                </div>
+                <div class="video-card gold-frame" data-aos="zoom-in" data-aos-delay="400">
+                    <video controls src="assets/kina.mp4" style="width:100%"></video>
+                    <p style="text-align: center; margin-top: 15px; font-weight: 600; color: var(--gold-dark);">Henna /
+                        Kına Abend</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galerie" class="section-pad">
+        <div class="container">
+            <h2 class="serif text-center" style="font-size:3rem;" data-aos="fade-up" data-i18n="nav_gallery">Galerie
+            </h2>
+            <div class="divider-gold-center" data-aos="fade-up"></div>
+            <div class="gallery-grid" style="margin-top:50px;">
+                <div class="gal-item" data-aos="fade-up"><img src="assets/slide1.jpg.jpeg"></div>
+                <div class="gal-item" data-aos="fade-up"><img src="assets/slide2.jpg.jpeg"></div>
+                <div class="gal-item" data-aos="fade-up"><img src="assets/slide5.jpg.jpeg"></div>
+                <div class="gal-item" data-aos="fade-up"><img src="assets/slite6.jpg.jpeg"></div>
+                <div class="gal-item" data-aos="fade-up"><img
+                        src="assets/WhatsApp Image 2026-01-21 at 18.27.52dilek7.jpeg"></div>
+                <div class="gal-item" data-aos="fade-up"><img
+                        src="assets/WhatsApp Image 2026-01-21 at 18.27.53dilek9.jpeg"></div>
+                <div class="gal-item" data-aos="fade-up"><img
+                        src="assets/WhatsApp Image 2026-01-21 at 18.27.53dilek10.jpeg"></div>
+                <div class="gal-item" data-aos="fade-up"><img src="assets/slide14.jpg.jpeg"></div>
+                <div class="gal-item" data-aos="fade-up"><img src="assets/slide15.jpg.jpeg"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS SLIDER - RESTORED & EXPANDED -->
+    <section class="section-pad">
+        <div class="container">
+            <h2 class="center-title serif" data-i18n="rev_title" data-aos="fade-up">Das sagen unsere Gäste</h2>
+            <div class="divider-gold-center" data-aos="fade-up"></div>
+
+            <div class="reviews-track" data-aos="fade-up">
+                <div class="review-card">
+                    <div style="color:var(--gold); margin-bottom:15px; font-size: 1.2rem;">★★★★★</div>
+                    <p>"Hayatımızın en güzel günüydü. Hizmet, yemekler, her şey 10 numara!"</p>
+                    <p
+                        style="font-weight:700; margin-top:20px; color: var(--gold-dark); text-transform: uppercase; font-size: 0.8rem;">
+                        - Elif & Hakan (Hochzeit)</p>
+                </div>
+                <div class="review-card">
+                    <div style="color:var(--gold); margin-bottom:15px; font-size: 1.2rem;">★★★★½</div>
+                    <p>"Unsere Firmen-Weihnachtsfeier war ein voller Erfolg. Tolles Buffet!"</p>
+                    <p
+                        style="font-weight:700; margin-top:20px; color: var(--gold-dark); text-transform: uppercase; font-size: 0.8rem;">
+                        - Müller Logistik (Event)</p>
+                </div>
+                <div class="review-card">
+                    <div style="color:var(--gold); margin-bottom:15px; font-size: 1.2rem;">★★★★★</div>
+                    <p>"Pauschalangebot für unseren Abiball war super. Hatten eine tolle Party."</p>
+                    <p
+                        style="font-weight:700; margin-top:20px; color: var(--gold-dark); text-transform: uppercase; font-size: 0.8rem;">
+                        - Abi-Komitee '24 (Ball)</p>
+                </div>
+                <div class="review-card">
+                    <div style="color:var(--gold); margin-bottom:15px; font-size: 1.2rem;">★★★★½</div>
+                    <p>"Muhteşem bir organizasyon. Her detayla tek tek ilgilendiler. Teşekkürler Armada!"</p>
+                    <p
+                        style="font-weight:700; margin-top:20px; color: var(--gold-dark); text-transform: uppercase; font-size: 0.8rem;">
+                        - Selin & Ahmet (Hochzeit)</p>
+                </div>
+                <div class="review-card">
+                    <div style="color:var(--gold); margin-bottom:15px; font-size: 1.2rem;">★★★★☆</div>
+                    <p>"Sehr professionelle Abwicklung unserer Konferenz. Top Technik!"</p>
+                    <p
+                        style="font-weight:700; margin-top:20px; color: var(--gold-dark); text-transform: uppercase; font-size: 0.8rem;">
+                        - Tech Solutions (Konferenz)</p>
+                </div>
+                <div class="review-card">
+                    <div style="color:var(--gold); margin-bottom:15px; font-size: 1.2rem;">★★★★★</div>
+                    <p>"Einfach nur WOW! Die Deko war genau wie wir sie uns erträumt haben."</p>
+                    <p
+                        style="font-weight:700; margin-top:20px; color: var(--gold-dark); text-transform: uppercase; font-size: 0.8rem;">
+                        - Julia & Max (Hochzeit)</p>
+                </div>
+                <div class="review-card">
+                    <div style="color:var(--gold); margin-bottom:15px; font-size: 1.2rem;">★★★★½</div>
+                    <p>"Harika bir mekan. Sünnet düğünümüz für her şey dört dörtlüktü."</p>
+                    <p
+                        style="font-weight:700; margin-top:20px; color: var(--gold-dark); text-transform: uppercase; font-size: 0.8rem;">
+                        - Aile Gökhan (Sünnet)</p>
+                </div>
+                <div class="review-card">
+                    <div style="color:var(--gold); margin-bottom:15px; font-size: 1.2rem;">★★★★★</div>
+                    <p>"Bestes Preis-Leistungs-Verhältnis in ganz Hamburg. Sehr zufrieden!"</p>
+                    <p
+                        style="font-weight:700; margin-top:20px; color: var(--gold-dark); text-transform: uppercase; font-size: 0.8rem;">
+                        - Kevin & Sarah (Event)</p>
+                </div>
+                <div class="review-card">
+                    <div style="color:var(--gold); margin-bottom:15px; font-size: 1.2rem;">★★★★☆</div>
+                    <p>"Guter Service, nur das Parken war schwierig. Aber der Saal ist der Hammer!"</p>
+                    <p
+                        style="font-weight:700; margin-top:20px; color: var(--gold-dark); text-transform: uppercase; font-size: 0.8rem;">
+                        - Bernd S. (Meeting)</p>
+                </div>
+                <div class="review-card">
+                    <div style="color:var(--gold); margin-bottom:15px; font-size: 1.2rem;">★★★★★</div>
+                    <p>"Salonun atmosferi harika, ışıklandırma ve ses sistemi çok kaliteli."</p>
+                    <p
+                        style="font-weight:700; margin-top:20px; color: var(--gold-dark); text-transform: uppercase; font-size: 0.8rem;">
+                        - Caner & Deniz (Wedding)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="termin" class="section-pad" style="background:var(--black); color:white;">
+        <div class="container text-center">
+            <h2 class="serif" data-aos="fade-up" style="font-size:3rem;" data-i18n="form_title">Termin vereinbaren
+            </h2>
+            <div class="divider-gold-center" data-aos="fade-up"></div>
+            <form id="bookingForm" onsubmit="handleBooking(event)"
+                style="max-width:600px; margin:30px auto; display:flex; flex-direction:column; gap:20px;"
+                data-aos="fade-up">
+                <input type="text" id="form-honeypot" name="website" tabindex="-1" autocomplete="off"
+                    style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+                <input type="text" id="form-name" name="name" placeholder="Name *" required
+                    style="padding:20px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:white;">
+                <input type="tel" id="form-phone" name="phone" placeholder="Telefon *" required
+                    style="padding:20px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:white;">
+                <input type="date" id="form-date" name="wunschdatum" placeholder="Gewünschtes Datum"
+                    style="padding:20px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:white;">
+                <select id="form-event" name="event" style="padding:20px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:white;">
+                    <option value="">Art des Events wählen *</option>
+                    <option value="Hochzeit">Hochzeit</option>
+                    <option value="Abiball">Abiball</option>
+                    <option value="Firmenevent">Firmenevent</option>
+                    <option value="Sonstiges">Sonstiges</option>
+                </select>
+                <button type="submit" class="btn btn-primary" data-i18n="form_btn">Anfrage Senden</button>
+                <p id="form-status" style="margin-top:15px; font-size: 0.9rem; display:none;"></p>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo">ARMADA</div>
+        <p style="margin:10px 0; opacity:0.8;">Gründgensstrasse 26, D-22309 Hamburg</p>
+        <p style="margin:5px 0; opacity:0.8;">WhatsApp: <a href="https://wa.me/491207117110" target="_blank" rel="noopener" style="color:var(--gold);">+49 120 711 7110</a></p>
+        <p style="margin:5px 0; opacity:0.8;">E-Mail: info@armada-events.de</p>
+        <div style="margin-top:30px;">
+            <a href="#" onclick="openModal('impressum')">Impressum</a> |
+            <a href="#" onclick="openModal('datenschutz')">Datenschutz</a> |
+            <a href="#" onclick="openModal('kuendigung')">Kündigungsvereinbarung</a> |
+            <a href="termin-planer.html">Terminplaner</a>
+        </div>
+    </footer>
+
+    <div id="legal-modal"
+        style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:2000; align-items:center; justify-content:center;">
+        <div
+            style="background:white; padding:50px; max-width:600px; max-height:85vh; overflow-y:auto; position:relative; color:black; border-radius:10px;">
+            <span onclick="closeModal()"
+                style="position:absolute; top:15px; right:20px; font-size:2rem; cursor:pointer;">&times;</span>
+            <div id="legal-text"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

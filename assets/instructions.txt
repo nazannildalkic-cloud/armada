@@ -1,0 +1,1 @@
+Info: Ich habe meine Website so programmiert, dass sie genau deine Dateinamen nutzt (z.B. slide1.jpg.jpeg). Du musst nichts umbenennen!

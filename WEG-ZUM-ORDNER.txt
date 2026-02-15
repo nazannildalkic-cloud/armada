@@ -1,0 +1,30 @@
+============================================
+  WEG ZUM WEDDING-PROJEKT ORDNER
+============================================
+
+So kommst du Schritt für Schritt zum Ordner:
+
+1. Öffne den Windows-Explorer (Windows-Taste + E).
+
+2. Klicke oben in die ADDRESSZEILE (wo z.B. "Dieser PC" steht).
+
+3. Lösche den Text dort und füge EINEN dieser Wege ein:
+
+   --- Option A: Alles in einem (zum Kopieren) ---
+   C:\Users\nazan\OneDrive\Dokumente\nanil369\Wedding_Project\wedding-project
+
+   --- Option B: Schritt für Schritt durchklicken ---
+   Im Explorer links: "Dieser PC" → "C:" → "Users" → "nazan" 
+   → "OneDrive" → "Dokumente" → "nanil369" → "Wedding_Project" 
+   → "wedding-project"
+
+4. Drücke ENTER. Du bist im richtigen Ordner.
+
+============================================
+In diesem Ordner liegen u.a.:
+  - index.html
+  - script.js
+  - style.css
+  - Server-starten.bat
+  - PFAD-ZUM-PROJEKT.txt
+============================================

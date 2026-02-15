@@ -1,0 +1,12 @@
+ARMADA EVENTS – WEDDING / WEBSITE
+=================================
+
+Dieser Ordner ist das komplette Armada-Projekt:
+- Website (index.html)
+- Ayla Voice-Assistentin (VAPI)
+- WhatsApp, Kündigungsvereinbarung, Terminplaner
+
+Keine Verbindung zu NANIL pulse oder NANNI.
+Eigenständiges Projekt nur für Armada Eventsaal.
+
+Pfad: Dokumente\Armada-Events\

@@ -1,0 +1,23 @@
+============================================
+  RICHTIGER ORDNER FÜR DAS WEDDING-PROJEKT
+============================================
+
+Voller Pfad (zum Kopieren):
+
+C:\Users\nazan\OneDrive\Dokumente\nanil369\Wedding_Project\wedding-project
+
+
+So öffnest du ihn:
+
+• In Cursor:
+  Datei → Ordner öffnen → diesen Pfad einfügen
+  (oder durchklicken: Dieser PC → OneDrive → Dokumente → nanil369 → Wedding_Project → wedding-project)
+
+• Im Windows-Explorer:
+  Adresszeile oben anklicken und den Pfad einfügen, Enter
+
+
+Wichtig: Der Ordner heißt "wedding-project" (mit Bindestrich).
+Er liegt in "Wedding_Project" (mit Unterstrich).
+
+============================================
