@@ -5,9 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARMADA EVENTSAAL | Unvergessliche Events in Hamburg</title>
+    <meta name="description" content="Armada Eventsaal Hamburg – Exklusive Säle für Hochzeit, Kına, Nişan, Abiball und Firmenevents. 250–700 Gäste. Gründgensstrasse 26. Jetzt Besichtigung buchen.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <meta property="og:title" content="ARMADA EVENTSAAL | Unvergessliche Events in Hamburg">
+    <meta property="og:description" content="Exklusive Säle für Hochzeit, Abiball und Firmenevents. 250–700 Gäste. Hamburg.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/slide2.jpg.jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js" defer></script>
+    <!-- Google Analytics 4: G-XXXXXXXXXX durch die echte Messungs-ID ersetzen -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
 </head>
 
 <body>
@@ -17,8 +27,12 @@
         <ul class="nav-links">
             <li><a href="#home" data-i18n="nav_home">Home</a></li>
             <li><a href="#pakete" data-i18n="nav_packages">Konzepte</a></li>
+            <li><a href="#leistungen" data-i18n="nav_leistungen">Ausstattung</a></li>
             <li><a href="#galerie" data-i18n="nav_gallery">Galerie</a></li>
+            <li><a href="#kalender" data-i18n="nav_calendar">Kalender</a></li>
             <li><a href="#termin" data-i18n="nav_date">Termin</a></li>
+            <li><a href="#anfahrt" data-i18n="anfahrt_title">Anfahrt</a></li>
+            <li><a href="besichtigung.html" data-i18n="nav_besichtigung">Besichtigung</a></li>
         </ul>
         <div class="lang-switch">
             <button onclick="switchLang('de')" class="lang-btn active">DE</button>
@@ -33,9 +47,9 @@
         <i class="fab fa-whatsapp"></i>
         <span>WhatsApp</span>
     </a>
-    <button id="vapi-btn" onclick="startVoiceAgent()" title="Mit Ayla sprechen">
+    <button id="vapi-btn" onclick="startVoiceAgent()" title="Frag Eila">
         <i class="fas fa-microphone"></i>
-        <span id="status-text">Frag Ayla</span>
+        <span id="status-text">Frag Eila</span>
     </button>
 
 
@@ -61,7 +75,7 @@
             </div>
         </div>
         <div class="scroll-indicator">
-            <span>Scroll</span>
+            <span data-i18n="scroll">Scroll</span>
             <div class="mouse">
                 <div class="wheel"></div>
             </div>
@@ -78,19 +92,16 @@
                     Säle bieten den perfekten Rahmen für 250 bis 700 Gäste in Hamburg. Unser Team begleitet Sie von der
                     ersten Planung bis zum finalen Tanz.
                 </p>
-                <div style="margin-top:20px;">
-                    <span class="signature">Irfan Gündoğan</span>
-                    <small style="opacity:0.6;">Inhaber & Gastgeber</small>
-                </div>
-                <div style="margin-top:40px; display:flex; gap:50px;">
-                    <div><span class="gold-text"
-                            style="font-size:3rem; font-weight:800;">3</span><br><small>Festsäle</small></div>
-                    <div><span class="gold-text" style="font-size:3rem; font-weight:800;">700</span><br><small>Max.
-                            Gäste</small></div>
-                </div>
             </div>
-            <div class="img-block gold-frame" data-aos="fade-left">
-                <img src="assets/tischdeko.jpg.jpeg" alt="Armada Setup" style="width:100%;">
+            <div class="about-right-wrap" data-aos="fade-left">
+                <div class="about-stats-row">
+                    <div class="about-founder">
+                        <span class="signature">Irfan Gündoğan</span>
+                        <small data-i18n="about_founder">Inhaber & Gastgeber</small>
+                    </div>
+                    <div class="about-stat"><span class="gold-text">3</span><br><small data-i18n="about_festsaale">Festsäle</small></div>
+                    <div class="about-stat"><span class="gold-text">700</span><br><small data-i18n="about_max_gaeste">Max. Gäste</small></div>
+                </div>
             </div>
         </div>
     </section>
@@ -101,24 +112,72 @@
             <div class="feature-grid">
                 <div class="feature-box" data-aos="fade-up">
                     <i class="fas fa-utensils"></i>
-                    <h4>Premium Catering</h4>
-                    <p style="font-size:0.85rem; opacity:0.7;">Exzellente kulinarische Vielfalt nach Ihren Wünschen.</p>
+                    <h4 data-i18n="feat1_title">Premium Catering</h4>
+                    <p style="font-size:0.85rem; opacity:0.7;" data-i18n="feat1_text">Exzellente kulinarische Vielfalt nach Ihren Wünschen.</p>
                 </div>
                 <div class="feature-box" data-aos="fade-up" data-aos-delay="100">
                     <i class="fas fa-lightbulb"></i>
-                    <h4>Smart Lighting</h4>
+                    <h4 data-i18n="feat2_title">Smart Lighting</h4>
                     <i class="fas fa-magic" style="font-size:1rem; margin-top:5px; opacity:0.3;"></i>
-                    <p style="font-size:0.85rem; opacity:0.7;">Modernste Licht- und Tontechnik für jede Atmosphäre.</p>
+                    <p style="font-size:0.85rem; opacity:0.7;" data-i18n="feat2_text">Modernste Licht- und Tontechnik für jede Atmosphäre.</p>
                 </div>
                 <div class="feature-box" data-aos="fade-up" data-aos-delay="200">
                     <i class="fas fa-gem"></i>
-                    <h4>Exklusive Deko</h4>
-                    <p style="font-size:0.85rem; opacity:0.7;">Individuelle Gestaltungskonzepte auf höchstem Niveau.</p>
+                    <h4 data-i18n="feat3_title">Exklusive Deko</h4>
+                    <p style="font-size:0.85rem; opacity:0.7;" data-i18n="feat3_text">Individuelle Gestaltungskonzepte auf höchstem Niveau.</p>
                 </div>
                 <div class="feature-box" data-aos="fade-up" data-aos-delay="300">
                     <i class="fas fa-shield-halved"></i>
-                    <h4>Full Service</h4>
-                    <p style="font-size:0.85rem; opacity:0.7;">Rundum-Sorglos-Planung für Ihren perfekten Tag.</p>
+                    <h4 data-i18n="feat4_title">Full Service</h4>
+                    <p style="font-size:0.85rem; opacity:0.7;" data-i18n="feat4_text">Rundum-Sorglos-Planung für Ihren perfekten Tag.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIE (früh platzieren) -->
+    <section id="galerie" class="section-pad">
+        <div class="container">
+            <h2 class="serif text-center section-title-compact" data-aos="fade-up" data-i18n="nav_gallery">Galerie</h2>
+            <div class="divider-gold-center" data-aos="fade-up"></div>
+            <div class="gallery-grid gallery-compact" id="gallery-grid">
+                <div class="gal-item" data-aos="fade-up" data-gallery-index="0"><img src="assets/slide1.jpg.jpeg" alt="Galerie"></div>
+                <div class="gal-item" data-aos="fade-up" data-gallery-index="1"><img src="assets/slide2.jpg.jpeg" alt="Galerie"></div>
+                <div class="gal-item" data-aos="fade-up" data-gallery-index="2"><img src="assets/slide5.jpg.jpeg" alt="Galerie"></div>
+                <div class="gal-item" data-aos="fade-up" data-gallery-index="3"><img src="assets/slide6.jpg.jpeg" alt="Galerie"></div>
+                <div class="gal-item" data-aos="fade-up" data-gallery-index="4"><img src="assets/WhatsApp Image 2026-01-21 at 18.27.52dilek7.jpeg" alt="Galerie"></div>
+                <div class="gal-item" data-aos="fade-up" data-gallery-index="5"><img src="assets/WhatsApp Image 2026-01-21 at 18.27.53dilek9.jpeg" alt="Galerie"></div>
+                <div class="gal-item" data-aos="fade-up" data-gallery-index="6"><img src="assets/WhatsApp Image 2026-01-21 at 18.27.53dilek10.jpeg" alt="Galerie"></div>
+                <div class="gal-item" data-aos="fade-up" data-gallery-index="7"><img src="assets/slide14.jpg.jpeg" alt="Galerie"></div>
+                <div class="gal-item" data-aos="fade-up" data-gallery-index="8"><img src="assets/slide15.jpg.jpeg" alt="Galerie"></div>
+                <div class="gal-item" data-aos="fade-up" data-gallery-index="9"><img src="assets/tischdeko.jpg.jpeg" alt="Armada Setup – Inhaber"></div>
+            </div>
+            <div id="lightbox" class="lightbox" aria-hidden="true">
+                <button type="button" class="lightbox-close" onclick="closeLightbox()" aria-label="Schließen">&times;</button>
+                <button type="button" class="lightbox-prev" onclick="lightboxPrev()" aria-label="Vorheriges">&lsaquo;</button>
+                <img id="lightbox-img" src="" alt="">
+                <button type="button" class="lightbox-next" onclick="lightboxNext()" aria-label="Nächstes">&rsaquo;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMPRESSIONEN: 3 Videos direkt nach Galerie (starker Bild+Video-Block) -->
+    <section id="impressionen-videos" class="section-pad section-videos-compact" style="background: #F9F7F2;">
+        <div class="container">
+            <h2 data-i18n="vid_title" class="center-title serif section-title-compact" data-aos="fade-up">Impressionen</h2>
+            <div class="divider-gold-center" data-aos="fade-up"></div>
+            <div class="grid-3 videos-three-col" style="margin-top:24px;">
+                <div class="video-card gold-frame video-card-highlight" data-aos="zoom-in">
+                    <video controls src="assets/intro.mp4" style="width:100%"></video>
+                    <p style="text-align: center; margin-top: 15px; font-weight: 600; color: var(--gold-dark);" data-i18n="video_intro">Highlight Intro</p>
+                </div>
+                <div class="video-card gold-frame" data-aos="zoom-in" data-aos-delay="200">
+                    <video controls src="assets/saal.mp4" style="width:100%"></video>
+                    <p style="text-align: center; margin-top: 15px; font-weight: 600; color: var(--gold-dark);" data-i18n="video_saal">Saal Rundgang</p>
+                </div>
+                <div class="video-card gold-frame" data-aos="zoom-in" data-aos-delay="400">
+                    <video controls src="assets/kina.mp4" style="width:100%"></video>
+                    <p style="text-align: center; margin-top: 15px; font-weight: 600; color: var(--gold-dark);" data-i18n="video_kina">Henna / Kına Abend</p>
                 </div>
             </div>
         </div>
@@ -127,7 +186,7 @@
     <!-- INTERVIEW HIGHLIGHT -->
     <section class="section-pad" style="background:var(--black); color:white;">
         <div class="container text-center">
-            <h2 class="serif gold-text" style="font-size:3rem;" data-aos="fade-up">Das Armada Versprechen</h2>
+            <h2 class="serif gold-text" style="font-size:3rem;" data-aos="fade-up" data-i18n="armada_versprechen">Das Armada Versprechen</h2>
             <div class="divider-gold-center" data-aos="fade-up"></div>
             <div class="video-card gold-frame" data-aos="zoom-in" style="max-width:900px; margin:0 auto;">
                 <video controls poster="assets/slide13.jpg.jpeg">
@@ -142,92 +201,81 @@
             <h2 class="serif text-center" style="font-size:3rem;" data-aos="fade-up" data-i18n="pack_title">Event
                 Konzepte</h2>
             <div class="divider-gold-center" data-aos="fade-up"></div>
-            <div class="grid-3" style="margin-top:60px;">
+            <div class="grid-3 concepts-one-row">
                 <div class="concept-card" data-aos="fade-up">
                     <h3 data-i18n="p1_title">Basis Konzept</h3>
                     <div class="ornament">✧</div>
                     <ul class="check-list">
-                        <li>Exklusive Saalmiete</li>
-                        <li>Professionelle Reinigung</li>
-                        <li>Dienstleister nach Wahl</li>
+                        <li><span data-i18n="p1_li1">Exklusive Saalmiete</span></li>
+                        <li><span data-i18n="p1_li2">Professionelle Reinigung</span></li>
+                        <li><span data-i18n="p1_li3">Dienstleister nach Wahl</span></li>
                     </ul>
-                    <a href="#termin" style="color:var(--gold-dark); font-weight:700; text-decoration:none;">Anfragen
-                        →</a>
+                    <a href="#termin" style="color:var(--gold-dark); font-weight:700; text-decoration:none;" data-i18n="p_anfragen">Anfragen →</a>
                 </div>
                 <div class="concept-card featured" data-aos="fade-up" data-aos-delay="200">
                     <div class="featured-badge">BELIEBTESTE WAHL</div>
                     <h3 data-i18n="p2_title">Premium Konzept</h3>
                     <div class="ornament">✧</div>
                     <ul class="check-list">
-                        <li>3-Gänge Galabuffet</li>
-                        <li>Getränkepauschale</li>
-                        <li>Servicepersonal Inkl.</li>
+                        <li><span data-i18n="p2_li1">3-Gänge Galabuffet</span></li>
+                        <li><span data-i18n="p2_li2">Getränkepauschale</span></li>
+                        <li><span data-i18n="p2_li3">Servicepersonal Inkl.</span></li>
                     </ul>
-                    <a href="#termin" class="btn btn-primary" style="padding: 12px 30px;">Jetzt Buchen</a>
+                    <a href="#termin" class="btn btn-primary" style="padding: 12px 30px;" data-i18n="p_jetzt">Jetzt Buchen</a>
                 </div>
                 <div class="concept-card" data-aos="fade-up" data-aos-delay="400">
                     <h3 data-i18n="p3_title">Royal All-In</h3>
                     <div class="ornament">✧</div>
                     <ul class="check-list">
-                        <li>Full-Service Organisation</li>
-                        <li>Live Cooking Stationen</li>
-                        <li>Deko, DJ & Kamera-Team</li>
+                        <li><span data-i18n="p3_li1">Full-Service Organisation</span></li>
+                        <li><span data-i18n="p3_li2">Live Cooking Stationen</span></li>
+                        <li><span data-i18n="p3_li3">Deko, DJ & Kamera-Team</span></li>
                     </ul>
-                    <a href="#termin" style="color:var(--gold-dark); font-weight:700; text-decoration:none;">Anfragen
-                        →</a>
+                    <a href="#termin" style="color:var(--gold-dark); font-weight:700; text-decoration:none;" data-i18n="p_anfragen">Anfragen →</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- IMPRESSIONS / VIDEOS - RESTORED -->
-    <section class="section-pad" style="background: #F9F7F2;">
+    <!-- Ausstattung, Menü, Ablauf – alle Infos, mehrsprachig -->
+    <section id="leistungen" class="section-pad" style="background: white; border-top: 1px solid rgba(197,160,89,0.08);">
         <div class="container">
-            <h2 data-i18n="vid_title" class="center-title serif" data-aos="fade-up">Impressionen</h2>
-            <div class="divider-gold-center" data-aos="fade-up"></div>
-            <div class="grid-3" style="margin-top:50px;">
-                <div class="video-card gold-frame" data-aos="zoom-in">
-                    <video controls src="assets/intro.mp4" style="width:100%"></video>
-                    <p style="text-align: center; margin-top: 15px; font-weight: 600; color: var(--gold-dark);">
-                        Highlight Intro</p>
+            <h2 class="serif text-center" style="font-size:3rem;" data-i18n="leistungen_title">Ausstattung & Service</h2>
+            <div class="divider-gold-center"></div>
+            <p class="text-center leistungen-mission" data-i18n="leistungen_mission">Qualität, Vertrauen und Organisationserfahrung stehen bei uns im Mittelpunkt.</p>
+
+            <div class="info-grid info-grid-one-row">
+                <div class="info-block">
+                    <h3 class="info-block-title" data-i18n="leistungen_events_title">Veranstaltungen</h3>
+                    <ul class="info-list" data-i18n="leistungen_events_list"><li>Hochzeit</li><li>Kına gecesi</li><li>Nişan</li><li>Abiball</li><li>Kurumsal etkinlik</li><li>Kültürel geceler</li></ul>
                 </div>
-                <div class="video-card gold-frame" data-aos="zoom-in" data-aos-delay="200">
-                    <video controls src="assets/saal.mp4" style="width:100%"></video>
-                    <p style="text-align: center; margin-top: 15px; font-weight: 600; color: var(--gold-dark);">Saal
-                        Rundgang</p>
+                <div class="info-block">
+                    <h3 class="info-block-title" data-i18n="leistungen_tech_title">Technische Ausstattung</h3>
+                    <ul class="info-list info-list-check" data-i18n="leistungen_tech_list"><li>Bühne</li><li>Soundsystem</li><li>Lichtsystem</li><li>LED-Screen</li><li>Klimaanlage / Belüftung</li><li>Parkplatz</li><li>Barrierefreier Zugang</li></ul>
                 </div>
-                <div class="video-card gold-frame" data-aos="zoom-in" data-aos-delay="400">
-                    <video controls src="assets/kina.mp4" style="width:100%"></video>
-                    <p style="text-align: center; margin-top: 15px; font-weight: 600; color: var(--gold-dark);">Henna /
-                        Kına Abend</p>
+                <div class="info-block">
+                    <h3 class="info-block-title" data-i18n="leistungen_package_title">Paketleistungen</h3>
+                    <ul class="info-list info-list-check" data-i18n="leistungen_package_list"><li>Tischdekoration</li><li>Brauttisch</li><li>Catering</li><li>Menüoptionen</li><li>DJ / Live-Musik</li><li>Organisationsleiter</li><li>Video & Foto</li><li>Service- und Reinigungspersonal</li></ul>
                 </div>
+                <div class="info-block">
+                    <h3 class="info-block-title" data-i18n="leistungen_menu_title">Menüoptionen</h3>
+                    <ul class="info-list" data-i18n="leistungen_menu_list"><li>Türkische Küche</li><li>Deutsche Küche</li><li>Halal verfügbar</li><li>Vegetarische Optionen</li><li>Kindermenü</li></ul>
+                </div>
+            </div>
+
+            <div class="info-pricing">
+                <p data-i18n="leistungen_pricing"><strong>Preis:</strong> Pro Person auf Anfrage. Mindestgästezahl abhängig vom Event. Unterschied Wochentag / Wochenende möglich. Zahlungsplan möglich.</p>
+            </div>
+
+            <div class="process-wrap">
+                <h3 class="info-block-title text-center" data-i18n="leistungen_process_title">Reservierungsprozess</h3>
+                <ol class="process-steps" data-i18n="leistungen_process_list"><li>Kostenloses Erstgespräch</li><li>Salonbesichtigung</li><li>Vertragsabschluss</li><li>Organisationsplanung</li><li>Eventtag-Koordination</li></ol>
+                <p class="text-center" style="margin-top:1.25rem;"><a href="#termin" class="btn btn-primary" data-i18n="leistungen_btn">Termin anfragen</a></p>
             </div>
         </div>
     </section>
 
-    <section id="galerie" class="section-pad">
-        <div class="container">
-            <h2 class="serif text-center" style="font-size:3rem;" data-aos="fade-up" data-i18n="nav_gallery">Galerie
-            </h2>
-            <div class="divider-gold-center" data-aos="fade-up"></div>
-            <div class="gallery-grid" style="margin-top:50px;">
-                <div class="gal-item" data-aos="fade-up"><img src="assets/slide1.jpg.jpeg"></div>
-                <div class="gal-item" data-aos="fade-up"><img src="assets/slide2.jpg.jpeg"></div>
-                <div class="gal-item" data-aos="fade-up"><img src="assets/slide5.jpg.jpeg"></div>
-                <div class="gal-item" data-aos="fade-up"><img src="assets/slite6.jpg.jpeg"></div>
-                <div class="gal-item" data-aos="fade-up"><img
-                        src="assets/WhatsApp Image 2026-01-21 at 18.27.52dilek7.jpeg"></div>
-                <div class="gal-item" data-aos="fade-up"><img
-                        src="assets/WhatsApp Image 2026-01-21 at 18.27.53dilek9.jpeg"></div>
-                <div class="gal-item" data-aos="fade-up"><img
-                        src="assets/WhatsApp Image 2026-01-21 at 18.27.53dilek10.jpeg"></div>
-                <div class="gal-item" data-aos="fade-up"><img src="assets/slide14.jpg.jpeg"></div>
-                <div class="gal-item" data-aos="fade-up"><img src="assets/slide15.jpg.jpeg"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- REVIEWS SLIDER - RESTORED & EXPANDED -->
+    <!-- REVIEWS SLIDER -->
     <section class="section-pad">
         <div class="container">
             <h2 class="center-title serif" data-i18n="rev_title" data-aos="fade-up">Das sagen unsere Gäste</h2>
@@ -278,7 +326,7 @@
                 </div>
                 <div class="review-card">
                     <div style="color:var(--gold); margin-bottom:15px; font-size: 1.2rem;">★★★★½</div>
-                    <p>"Harika bir mekan. Sünnet düğünümüz für her şey dört dörtlüktü."</p>
+                    <p>"Harika bir mekan. Sünnet düğünümüz ve her şey dört dörtlüktü."</p>
                     <p
                         style="font-weight:700; margin-top:20px; color: var(--gold-dark); text-transform: uppercase; font-size: 0.8rem;">
                         - Aile Gökhan (Sünnet)</p>
@@ -308,6 +356,26 @@
         </div>
     </section>
 
+    <!-- TERMINKALENDER (Datum wählen, springt zum Formular) -->
+    <section id="kalender" class="section-pad" style="background:var(--champagne);">
+        <div class="container text-center">
+            <h2 class="serif" style="font-size:3rem;" data-aos="fade-up" data-i18n="calendar_title">Termin auswählen</h2>
+            <div class="divider-gold-center" data-aos="fade-up"></div>
+            <div class="calendar-wrap" data-aos="fade-up">
+                <div class="calendar-header">
+                    <button type="button" class="cal-nav" id="cal-prev" aria-label="Vorheriger Monat">&lsaquo;</button>
+                    <h3 id="cal-month-year"></h3>
+                    <button type="button" class="cal-nav" id="cal-next" aria-label="Nächster Monat">&rsaquo;</button>
+                </div>
+                <div class="calendar-weekdays">
+                    <span data-i18n="cal_mo">Mo</span><span data-i18n="cal_di">Di</span><span data-i18n="cal_mi">Mi</span><span data-i18n="cal_do">Do</span><span data-i18n="cal_fr">Fr</span><span data-i18n="cal_sa">Sa</span><span data-i18n="cal_so">So</span>
+                </div>
+                <div id="cal-grid" class="calendar-grid"></div>
+                <p class="calendar-hint" data-i18n="calendar_hint">Datum anklicken und unten Anfrage ausfüllen.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="termin" class="section-pad" style="background:var(--black); color:white;">
         <div class="container text-center">
             <h2 class="serif" data-aos="fade-up" style="font-size:3rem;" data-i18n="form_title">Termin vereinbaren
@@ -324,6 +392,8 @@
                     style="padding:20px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:white;">
                 <input type="date" id="form-date" name="wunschdatum" placeholder="Gewünschtes Datum"
                     style="padding:20px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:white;">
+                <input type="number" id="form-guests" name="gaeste" min="1" max="700" placeholder="Anzahl Gäste (optional)"
+                    style="padding:20px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:white;">
                 <select id="form-event" name="event" style="padding:20px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:white;">
                     <option value="">Art des Events wählen *</option>
                     <option value="Hochzeit">Hochzeit</option>
@@ -331,9 +401,38 @@
                     <option value="Firmenevent">Firmenevent</option>
                     <option value="Sonstiges">Sonstiges</option>
                 </select>
+                <textarea id="form-message" name="nachricht" rows="4" placeholder="Ihre Nachricht / Wünsche (optional)"
+                    style="padding:20px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:white; resize:vertical;"></textarea>
                 <button type="submit" class="btn btn-primary" data-i18n="form_btn">Anfrage Senden</button>
                 <p id="form-status" style="margin-top:15px; font-size: 0.9rem; display:none;"></p>
+                <p style="margin-top:24px; font-size:0.95rem; opacity:0.9;">
+                    <a href="besichtigung.html" style="color:var(--gold-light); text-decoration:underline;" data-i18n="link_besichtigung">Besichtigungstermin direkt buchen →</a>
+                </p>
             </form>
+        </div>
+    </section>
+
+    <!-- Anfahrt / Google Maps -->
+    <section id="anfahrt" class="section-pad" style="background:var(--champagne);">
+        <div class="container">
+            <h2 class="serif text-center" style="font-size:3rem;" data-aos="fade-up" data-i18n="anfahrt_title">Anfahrt</h2>
+            <div class="divider-gold-center" data-aos="fade-up"></div>
+            <p class="text-center" style="margin-bottom:24px; color:#555;">Gründgensstrasse 26, 22309 Hamburg</p>
+            <div class="map-wrap" data-aos="fade-up">
+                <iframe
+                    src="https://www.google.com/maps?q=Gr%C3%BCndgensstrasse+26,+22309+Hamburg&output=embed"
+                    width="100%"
+                    height="400"
+                    style="border:0; border-radius:12px; box-shadow:0 15px 40px rgba(0,0,0,0.08);"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Armada Eventsaal auf Google Maps">
+                </iframe>
+            </div>
+            <p class="text-center" style="margin-top:20px;">
+                <a href="https://www.google.com/maps/search/?api=1&query=Gr%C3%BCndgensstrasse+26,+22309+Hamburg" target="_blank" rel="noopener" class="btn btn-primary" style="display:inline-block; text-decoration:none;" data-i18n="anfahrt_btn">In Google Maps öffnen</a>
+            </p>
         </div>
     </section>
 
@@ -346,7 +445,8 @@
             <a href="#" onclick="openModal('impressum')">Impressum</a> |
             <a href="#" onclick="openModal('datenschutz')">Datenschutz</a> |
             <a href="#" onclick="openModal('kuendigung')">Kündigungsvereinbarung</a> |
-            <a href="termin-planer.html">Terminplaner</a>
+            <a href="termin-planer.html">Terminplaner</a> |
+            <a href="besichtigung.html">Besichtigung buchen</a>
         </div>
     </footer>
 

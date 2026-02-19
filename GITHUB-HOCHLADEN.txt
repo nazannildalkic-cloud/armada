@@ -2,13 +2,16 @@
 PROJEKT AUF GITHUB HOCHLADEN
 ========================================
 
-SCHRITT 1: Auf GitHub (im Browser)
+SCHRITT 1: Auf GitHub (im Browser) – ZUERST MACHEN!
 ----------------------------------
+Ohne dieses Repo kommt "Repository not found" beim Push.
+
 1. Gehe zu: https://github.com/new
-2. Repository name: armada (oder ein anderer Name)
+2. Repository name: genau "armada" (klein geschrieben)
 3. Public auswählen
 4. NICHTS ankreuzen (kein README, keine .gitignore, keine Lizenz)
 5. Auf "Repository erstellen" klicken
+6. Mit dem Account nazannildalkic eingeloggt sein!
 
 SCHRITT 2: In PowerShell (in DIESEM Ordner)
 -------------------------------------------
