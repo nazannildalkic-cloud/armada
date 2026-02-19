@@ -1,0 +1,26 @@
+WAS NOCH ZU TUN IST – WEBSITE ENDGÜLTIG FERTIG
+================================================
+
+Doppelklick auf diese Datei = öffnet mit Editor. Kein Code.
+
+1. Google Analytics
+   Inhaber: GA4-Mess-ID schicken (z.B. G-ABC123XY) ODER "nicht nötig".
+   Du: In index.html und besichtigung.html "G-XXXXXXXXXX" durch die ID ersetzen (oder auskommentieren).
+
+2. Calendly (Besichtigung buchen)
+   Inhaber: Calendly-Link schicken ODER "nur Kontakt, kein Kalender".
+   Du: In besichtigung.html "YOUR_CALENDLY_LINK" durch den Link ersetzen.
+
+3. WhatsApp bei Formular (Sofort-Nachricht)
+   Inhaber: Bei callmebot.com anmelden, API-Code schicken ODER "nicht nötig".
+   Du: In script.js Zeile 525 "HIER_DER_WHATSAPP_CODE" durch den Code ersetzen.
+
+4. Eila (Sprach-Assistentin)
+   Inhaber: Zugang zu dashboard.vapi.ai geben ODER Anleitung ausführen (Copy-Paste).
+   Du: Prompt aus EILA-STIMME-UND-PROMPT-IM-DASHBOARD.txt ins Dashboard einfügen.
+
+5. Galerie-Bilder
+   Inhaber: Fotos schicken.
+   Du: In Ordner assets legen, ggf. Pfade in index.html anpassen.
+
+FERTIG. Rest (Favicon, Rechtstexte, Mehrsprache, Eila-Button) ist schon drin.
