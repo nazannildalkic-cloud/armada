@@ -70,6 +70,17 @@ const translations = {
         eila_not_loaded: "Ayla nicht geladen",
         eila_not_connected: "Ayla nicht verbunden",
         eila_reload: "Seite neu laden",
+        widget_need_help: "Hilfe?",
+        widget_start_call: "Anruf starten",
+        footer_impressum: "Impressum",
+        footer_datenschutz: "Datenschutz",
+        footer_kuendigung: "Kündigungsvereinbarung",
+        footer_terminplaner: "Terminplaner",
+        footer_besichtigung: "Besichtigung buchen",
+        consent_title: "Nutzungsbedingungen",
+        consent_text: "Mit Klick auf „Einverstanden“ und bei jeder Nutzung dieses Sprach-Assistenten willige ich ein, dass meine Gespräche aufgezeichnet, gespeichert und an Diensteanbieter weitergegeben werden können, wie in der Datenschutzerklärung beschrieben. Wenn Sie keine Aufzeichnung wünschen, nutzen Sie den Assistenten bitte nicht.",
+        consent_cancel: "Abbrechen",
+        consent_agree: "Einverstanden",
         cal_mo: "Mo", cal_di: "Di", cal_mi: "Mi", cal_do: "Do", cal_fr: "Fr", cal_sa: "Sa", cal_so: "So"
     },
     tr: {
@@ -143,6 +154,17 @@ const translations = {
         eila_not_loaded: "Ayla yüklenemedi",
         eila_not_connected: "Ayla bağlanamadı",
         eila_reload: "Sayfayı yenile",
+        widget_need_help: "Yardım?",
+        widget_start_call: "Aramayı başlat",
+        footer_impressum: "Künye",
+        footer_datenschutz: "Gizlilik",
+        footer_kuendigung: "İptal Koşulları",
+        footer_terminplaner: "Randevu Planlayıcı",
+        footer_besichtigung: "Görüşme randevusu al",
+        consent_title: "Kullanım Koşulları",
+        consent_text: "\"Kabul ediyorum\"a tıklayarak ve bu ses asistanı her kullanıldığında, görüşmelerimin kaydedilmesini, saklanmasını ve Gizlilik Politikası'nda belirtildiği gibi üçüncü taraflara iletilmesini kabul ediyorum. Görüşmelerinizin kaydedilmesini istemiyorsanız lütfen kullanmayın.",
+        consent_cancel: "İptal",
+        consent_agree: "Kabul ediyorum",
         cal_mo: "Pzt", cal_di: "Sal", cal_mi: "Çar", cal_do: "Per", cal_fr: "Cum", cal_sa: "Cmt", cal_so: "Paz"
     },
     ar: {
@@ -215,6 +237,17 @@ const translations = {
         eila_not_loaded: "أيلا لم تُحمّل",
         eila_not_connected: "أيلا غير متصلة",
         eila_reload: "حدّث الصفحة",
+        widget_need_help: "مساعدة؟",
+        widget_start_call: "بدء المكالمة",
+        footer_impressum: "البيانات القانونية",
+        footer_datenschutz: "خصوصية البيانات",
+        footer_kuendigung: "شروط الإلغاء",
+        footer_terminplaner: "مخطط المواعيد",
+        footer_besichtigung: "حجز معاينة",
+        consent_title: "الشروط والأحكام",
+        consent_text: "بالنقر على \"موافق\" وفي كل مرة أتفاعل فيها مع هذا المساعد، أوافق على تسجيل محادثاتي وتخزينها ومشاركتها مع مقدمي خدمات طرف ثالث كما هو موضح في سياسة الخصوصية. إذا كنت لا ترغب في تسجيل المحادثات، يرجى عدم الاستخدام.",
+        consent_cancel: "إلغاء",
+        consent_agree: "موافق",
         cal_mo: "ن", cal_di: "ث", cal_mi: "ر", cal_do: "خ", cal_fr: "ج", cal_sa: "س", cal_so: "ح"
     },
     en: {
@@ -287,6 +320,17 @@ const translations = {
         eila_not_loaded: "Ayla not loaded",
         eila_not_connected: "Ayla not connected",
         eila_reload: "Reload page",
+        widget_need_help: "Need help?",
+        widget_start_call: "Start a call",
+        footer_impressum: "Imprint",
+        footer_datenschutz: "Privacy",
+        footer_kuendigung: "Cancellation Policy",
+        footer_terminplaner: "Appointment Planner",
+        footer_besichtigung: "Book a viewing",
+        consent_title: "Terms and conditions",
+        consent_text: "By clicking \"Agree\" and each time I interact with this AI agent, I consent to the recording, storage, and sharing of my communications with third-party service providers, as described in the Privacy Policy. If you do not wish to have your conversations recorded, please refrain from using this.",
+        consent_cancel: "Cancel",
+        consent_agree: "Agree",
         cal_mo: "Mon", cal_di: "Tue", cal_mi: "Wed", cal_do: "Thu", cal_fr: "Fri", cal_sa: "Sat", cal_so: "Sun"
     },
     fa: {
@@ -359,6 +403,17 @@ const translations = {
         eila_not_loaded: "آیلا بارگذاری نشد",
         eila_not_connected: "آیلا متصل نیست",
         eila_reload: "صفحه را دوباره بارگذاری کنید",
+        widget_need_help: "کمک؟",
+        widget_start_call: "شروع تماس",
+        footer_impressum: "اطلاعات قانونی",
+        footer_datenschutz: "حریم خصوصی",
+        footer_kuendigung: "شرایط لغو",
+        footer_terminplaner: "برنامه‌ریز قرار",
+        footer_besichtigung: "رزرو بازدید",
+        consent_title: "شرایط و ضوابط",
+        consent_text: "با کلیک روی «موافق» و هر بار که با این دستیار صوتی تعامل می‌کنم، به ضبط، ذخیره و اشتراک‌گذاری گفتگوهایم با ارائه‌دهندگان خدمات ثالث طبق سیاست حریم خصوصی رضایت می‌دهم. در صورت عدم تمایل به ضبط گفتگوها، لطفاً استفاده نکنید.",
+        consent_cancel: "انصراف",
+        consent_agree: "موافق",
         cal_mo: "د", cal_di: "س", cal_mi: "چ", cal_do: "پ", cal_fr: "ج", cal_sa: "ش", cal_so: "ی"
     }
 };
@@ -597,6 +652,17 @@ window.switchLang = function (lang) {
     var vapiBtn = document.getElementById('vapi-btn');
     if (st && t.eila_btn) { st.innerText = isCallActive ? (t.eila_listening || st.innerText) : t.eila_btn; }
     if (vapiBtn && t.eila_btn) vapiBtn.setAttribute('title', t.eila_btn);
+    var elWidget = document.getElementById('elevenlabs-ayla');
+    if (elWidget) {
+        elWidget.setAttribute('data-locale', lang);
+        elWidget.setAttribute('locale', lang);
+    }
+    if (window.ElevenLabsConvaiConfig) window.ElevenLabsConvaiConfig.locale = lang;
+    else window.ElevenLabsConvaiConfig = { locale: lang };
+    var helpText = document.getElementById('voice-help-text');
+    var helpBtn = document.getElementById('voice-help-call-btn');
+    if (helpText && t.widget_need_help) helpText.textContent = t.widget_need_help;
+    if (helpBtn && t.widget_start_call) { helpBtn.textContent = t.widget_start_call; helpBtn.setAttribute('aria-label', t.widget_start_call); }
 };
 
 function runSlideshow() {
@@ -759,11 +825,72 @@ document.addEventListener('DOMContentLoaded', () => {
         calCurrent.setMonth(calCurrent.getMonth() + 1);
         renderCalendar();
     });
-    window.currentLang = 'de';
+    /* Startsprache aus Browser (Nanil-Logik), sonst DE – eine Box, keine zweite */
+    var navLang = (navigator.language || navigator.userLanguage || 'de').toLowerCase();
+    var initialLang = 'de';
+    if (navLang.indexOf('de') === 0) initialLang = 'de';
+    else if (navLang.indexOf('tr') === 0) initialLang = 'tr';
+    else if (navLang.indexOf('ar') === 0) initialLang = 'ar';
+    else if (navLang.indexOf('fa') === 0) initialLang = 'fa';
+    else if (navLang.indexOf('en') === 0) initialLang = 'en';
+    window.currentLang = initialLang;
+    if (typeof switchLang === 'function') switchLang(initialLang);
     var eilaT = getEilaT();
     var statusEl = document.getElementById('status-text');
     if (statusEl) statusEl.innerText = eilaT.btn;
     var vapiBtnEl = document.getElementById('vapi-btn');
     if (vapiBtnEl) vapiBtnEl.setAttribute('title', eilaT.btn);
+    var elWidget = document.getElementById('elevenlabs-ayla');
+    if (elWidget) {
+        elWidget.setAttribute('data-locale', initialLang);
+        elWidget.setAttribute('locale', initialLang);
+    }
+    if (window.ElevenLabsConvaiConfig) window.ElevenLabsConvaiConfig.locale = initialLang;
+    else window.ElevenLabsConvaiConfig = { locale: initialLang };
+    var helpText = document.getElementById('voice-help-text');
+    var helpBtn = document.getElementById('voice-help-call-btn');
+    var t0 = translations[initialLang] || translations.de;
+    if (helpText && t0.widget_need_help) helpText.textContent = t0.widget_need_help;
+    if (helpBtn && t0.widget_start_call) { helpBtn.textContent = t0.widget_start_call; helpBtn.setAttribute('aria-label', t0.widget_start_call); }
+    if (helpBtn) {
+        helpBtn.addEventListener('click', function () {
+            var lang = window.currentLang || 'de';
+            var t = translations[lang] || translations.de;
+            var cm = document.getElementById('consent-modal');
+            var ct = document.getElementById('consent-title');
+            var ctxt = document.getElementById('consent-text');
+            var cc = document.getElementById('consent-cancel');
+            var ca = document.getElementById('consent-agree');
+            if (cm && t.consent_title) {
+                if (ct) ct.textContent = t.consent_title;
+                if (ctxt) ctxt.textContent = t.consent_text;
+                if (cc && t.consent_cancel) cc.textContent = t.consent_cancel;
+                if (ca && t.consent_agree) ca.textContent = t.consent_agree;
+                var inner = cm.querySelector('.consent-modal-inner');
+                if (inner) inner.style.direction = (lang === 'ar' || lang === 'fa') ? 'rtl' : 'ltr';
+                cm.style.display = 'flex';
+            } else {
+                openAylaWidget();
+            }
+        });
+    }
+    function openAylaWidget() {
+        var w = document.getElementById('elevenlabs-ayla');
+        if (!w) return;
+        w.click();
+        var root = w.shadowRoot;
+        if (root) {
+            var btn = root.querySelector('button') || root.querySelector('[role="button"]') || root.querySelector('a');
+            if (btn) btn.click();
+        }
+    }
+    var consentModal = document.getElementById('consent-modal');
+    var consentCancel = document.getElementById('consent-cancel');
+    var consentAgree = document.getElementById('consent-agree');
+    if (consentCancel) consentCancel.addEventListener('click', function () { if (consentModal) consentModal.style.display = 'none'; });
+    if (consentAgree) consentAgree.addEventListener('click', function () {
+        if (consentModal) consentModal.style.display = 'none';
+        openAylaWidget();
+    });
     renderCalendar();
 });

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>ARMADA EVENTSAAL | Unvergessliche Events in Hamburg</title>
     <meta name="description" content="Armada Eventsaal Hamburg – Exklusive Säle für Hochzeit, Kına, Nişan, Abiball und Firmenevents. 250–700 Gäste. Gründgensstrasse 26. Jetzt Besichtigung buchen.">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -14,7 +14,23 @@
     <meta property="og:image" content="assets/slide2.jpg.jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js" defer></script>
+    <!-- 🌍 ElevenLabs Locale: vor dem Widget setzen (wird beim Sprachwechsel in script.js aktualisiert) -->
+    <script>
+      (function() {
+        var lang = (document.documentElement && document.documentElement.getAttribute('lang')) || '';
+        if (!lang) {
+          var nav = navigator.language || navigator.userLanguage || '';
+          if (nav.indexOf('de') === 0) lang = 'de';
+          else if (nav.indexOf('tr') === 0) lang = 'tr';
+          else if (nav.indexOf('ar') === 0) lang = 'ar';
+          else if (nav.indexOf('fa') === 0) lang = 'fa';
+          else lang = 'en';
+        }
+        window.ElevenLabsConvaiConfig = { locale: lang };
+      })();
+    </script>
+    <!-- 🎤 ElevenLabs Widget (offizielles Script) -->
+    <script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
     <!-- Google Analytics 4: G-XXXXXXXXXX durch die echte Messungs-ID ersetzen -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
@@ -43,14 +59,10 @@
         </div>
     </nav>
 
-    <a id="wa-btn" href="https://wa.me/491207117110" target="_blank" rel="noopener" title="WhatsApp: +49 1207117110">
+    <a id="wa-btn" href="https://wa.me/491207117110" target="_blank" rel="noopener" title="WhatsApp: +49 1207117110" style="position:fixed !important; top:72px !important; left:20px !important; right:auto !important; bottom:auto !important;">
         <i class="fab fa-whatsapp"></i>
         <span>WhatsApp</span>
     </a>
-    <button id="vapi-btn" onclick="startVoiceAgent()" title="Frag Ayla">
-        <i class="fas fa-microphone"></i>
-        <span id="status-text">Frag Ayla</span>
-    </button>
 
 
 
@@ -442,11 +454,11 @@
         <p style="margin:5px 0; opacity:0.8;">WhatsApp: <a href="https://wa.me/491207117110" target="_blank" rel="noopener" style="color:var(--gold);">+49 120 711 7110</a></p>
         <p style="margin:5px 0; opacity:0.8;">E-Mail: info@armada-events.de</p>
         <div style="margin-top:30px;">
-            <a href="#" onclick="openModal('impressum')">Impressum</a> |
-            <a href="#" onclick="openModal('datenschutz')">Datenschutz</a> |
-            <a href="#" onclick="openModal('kuendigung')">Kündigungsvereinbarung</a> |
-            <a href="termin-planer.html">Terminplaner</a> |
-            <a href="besichtigung.html">Besichtigung buchen</a>
+            <a href="#" onclick="openModal('impressum')" data-i18n="footer_impressum">Impressum</a> |
+            <a href="#" onclick="openModal('datenschutz')" data-i18n="footer_datenschutz">Datenschutz</a> |
+            <a href="#" onclick="openModal('kuendigung')" data-i18n="footer_kuendigung">Kündigungsvereinbarung</a> |
+            <a href="termin-planer.html" data-i18n="footer_terminplaner">Terminplaner</a> |
+            <a href="besichtigung.html" data-i18n="footer_besichtigung">Besichtigung buchen</a>
         </div>
     </footer>
 
@@ -460,7 +472,41 @@
         </div>
     </div>
 
+    <!-- Consent-Modal (Terms) in gewählter Sprache – wird vor dem Öffnen des Sprach-Assistenten gezeigt -->
+    <div id="consent-modal" class="consent-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:21000; align-items:center; justify-content:center; padding:12px; overflow-y:auto;">
+        <div class="consent-modal-inner" style="background:white; padding:40px; max-width:520px; border-radius:12px; color:#1a1a1a; box-shadow:0 20px 60px rgba(0,0,0,0.3); margin:auto;">
+            <h3 id="consent-title" style="margin:0 0 16px; font-size:1.35rem;">Nutzungsbedingungen</h3>
+            <p id="consent-text" style="margin:0 0 24px; line-height:1.6; font-size:0.95rem;"></p>
+            <div class="consent-buttons" style="display:flex; justify-content:flex-end; gap:12px;">
+                <button type="button" id="consent-cancel" style="padding:10px 20px; border:1px solid #ccc; background:#f5f5f5; border-radius:8px; cursor:pointer; font-size:1rem;">Abbrechen</button>
+                <button type="button" id="consent-agree" style="padding:10px 20px; border:none; background:#8E6D3B; color:white; border-radius:8px; cursor:pointer; font-size:1rem; font-weight:600;">Einverstanden</button>
+            </div>
+        </div>
+    </div>
+    <!-- Eigenes Hilfs-Label in der gewählten Sprache („Hilfe?“ / „Anruf starten“). Beim Klick → Consent-Modal → dann Widget. -->
+    <div id="voice-help-box" class="voice-help-box">
+        <span id="voice-help-text" class="voice-help-text">Hilfe?</span>
+        <button type="button" id="voice-help-call-btn" class="voice-help-call-btn" aria-label="Anruf starten">Anruf starten</button>
+    </div>
+    <!-- 🤖 ElevenLabs Ayla – Sprach-Assistentin (Locale über ElevenLabsConvaiConfig + data-locale). -->
+    <elevenlabs-convai id="elevenlabs-ayla" agent-id="agent_0001khww3y6pe0d9chhs6a00n8et" placement="bottom-right" data-locale="de"></elevenlabs-convai>
+
     <script src="script.js"></script>
+    <script>
+        function fixWaPosition() {
+            var btn = document.getElementById('wa-btn');
+            if (btn) {
+                btn.style.setProperty('position', 'fixed', 'important');
+                btn.style.setProperty('top', '72px', 'important');
+                btn.style.setProperty('left', '20px', 'important');
+                btn.style.setProperty('right', 'auto', 'important');
+                btn.style.setProperty('bottom', 'auto', 'important');
+            }
+        }
+        fixWaPosition();
+        setTimeout(fixWaPosition, 100);
+        setTimeout(fixWaPosition, 500);
+    </script>
 </body>
 
 </html>
