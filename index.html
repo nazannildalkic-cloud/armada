@@ -14,24 +14,8 @@
     <meta property="og:image" content="assets/slide2.jpg.jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <!-- 🌍 ElevenLabs Locale: immer aus Browser/Seite, damit Widget in richtiger Sprache startet -->
-    <script>
-      (function() {
-        var nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
-        var lang = (document.documentElement && document.documentElement.getAttribute('lang')) || '';
-        if (!lang && nav) {
-          if (nav.indexOf('de') === 0) lang = 'de';
-          else if (nav.indexOf('tr') === 0) lang = 'tr';
-          else if (nav.indexOf('ar') === 0) lang = 'ar';
-          else if (nav.indexOf('fa') === 0) lang = 'fa';
-          else if (nav.indexOf('en') === 0) lang = 'en';
-        }
-        if (!lang) lang = 'de';
-        window.ElevenLabsConvaiConfig = { locale: lang };
-      })();
-    </script>
-    <!-- 🎤 ElevenLabs Widget (offizielles Script) -->
-    <script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
+    <!-- 🎤 ElevenLabs Widget (Unpkg) – Sprache wird unten per Script aus Browser gesetzt -->
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
     <!-- Google Analytics 4: G-XXXXXXXXXX durch die echte Messungs-ID ersetzen -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
@@ -483,14 +467,39 @@
             </div>
         </div>
     </div>
-    <!-- Eigenes Hilfs-Label in der gewählten Sprache („Hilfe?“ / „Anruf starten“). Beim Klick → Consent-Modal → dann Widget. -->
+    <!-- Eigenes Hilfs-Label („Hilfe?“ / „Anruf starten“). Beim Klick → Consent (PC) oder direkt Widget (Handy). -->
     <div id="voice-help-box" class="voice-help-box">
         <span id="voice-help-text" class="voice-help-text">Hilfe?</span>
         <button type="button" id="voice-help-call-btn" class="voice-help-call-btn" aria-label="Anruf starten">Anruf starten</button>
     </div>
-    <!-- 🤖 ElevenLabs Ayla – Sprach-Assistentin (Locale über ElevenLabsConvaiConfig + data-locale). -->
-    <elevenlabs-convai id="elevenlabs-ayla" agent-id="agent_0001khww3y6pe0d9chhs6a00n8et" placement="bottom-right" data-locale="de"></elevenlabs-convai>
-
+    <!-- 🤖 ElevenLabs Widget: Sprache = Browser (DE/TR/AR/EN/FA), wird nach Laden des Embed-Scripts erzeugt -->
+    <script>
+      (function() {
+        function initWidget() {
+          var widgetLang = window.currentLang || '';
+          if (!widgetLang) {
+            var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+            widgetLang = 'en';
+            if (lang.indexOf('de') === 0) widgetLang = 'de';
+            else if (lang.indexOf('tr') === 0) widgetLang = 'tr';
+            else if (lang.indexOf('ar') === 0) widgetLang = 'ar';
+            else if (lang.indexOf('fa') === 0) widgetLang = 'fa';
+            else if (lang.indexOf('en') === 0) widgetLang = 'en';
+          }
+          if (document.getElementById('elevenlabs-ayla')) return;
+          var el = document.createElement('elevenlabs-convai');
+          el.setAttribute('agent-id', 'agent_3201khxdc18wfrabzjjpqtes42jz');
+          el.setAttribute('language', widgetLang);
+          el.setAttribute('id', 'elevenlabs-ayla');
+          el.setAttribute('placement', 'bottom-right');
+          el.setAttribute('data-locale', widgetLang);
+          document.body.appendChild(el);
+          window.__elevenlabsWidgetLang = widgetLang;
+        }
+        if (document.readyState === 'complete') initWidget();
+        else window.addEventListener('load', initWidget);
+      })();
+    </script>
     <script src="script.js"></script>
     <script>
         function fixWaPosition() {

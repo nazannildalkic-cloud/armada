@@ -661,9 +661,11 @@ window.switchLang = function (lang) {
     if (elWidget) {
         elWidget.setAttribute('data-locale', lang);
         elWidget.setAttribute('locale', lang);
+        elWidget.setAttribute('language', lang);
     }
     if (window.ElevenLabsConvaiConfig) window.ElevenLabsConvaiConfig.locale = lang;
     else window.ElevenLabsConvaiConfig = { locale: lang };
+    if (typeof window.__elevenlabsWidgetLang !== 'undefined') window.__elevenlabsWidgetLang = lang;
     var helpText = document.getElementById('voice-help-text');
     var helpBtn = document.getElementById('voice-help-call-btn');
     if (helpText && t.widget_need_help) helpText.textContent = t.widget_need_help;
@@ -849,6 +851,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (elWidget) {
         elWidget.setAttribute('data-locale', initialLang);
         elWidget.setAttribute('locale', initialLang);
+        elWidget.setAttribute('language', initialLang);
     }
     if (window.ElevenLabsConvaiConfig) window.ElevenLabsConvaiConfig.locale = initialLang;
     else window.ElevenLabsConvaiConfig = { locale: initialLang };
@@ -890,6 +893,7 @@ document.addEventListener('DOMContentLoaded', () => {
         var lang = window.currentLang || document.documentElement.lang || 'de';
         w.setAttribute('data-locale', lang);
         w.setAttribute('locale', lang);
+        w.setAttribute('language', lang);
         if (window.ElevenLabsConvaiConfig) window.ElevenLabsConvaiConfig.locale = lang;
         else window.ElevenLabsConvaiConfig = { locale: lang };
         var doOpen = function() {
@@ -910,6 +914,7 @@ document.addEventListener('DOMContentLoaded', () => {
     var consentAgree = document.getElementById('consent-agree');
     if (consentCancel) consentCancel.addEventListener('click', function () { if (consentModal) consentModal.style.display = 'none'; });
     if (consentAgree) consentAgree.addEventListener('click', function () {
+        try { sessionStorage.setItem('ayla_consent', '1'); } catch (e) {}
         if (consentModal) consentModal.style.display = 'none';
         openAylaWidget();
     });
