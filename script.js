@@ -72,6 +72,7 @@ const translations = {
         eila_reload: "Seite neu laden",
         widget_need_help: "Hilfe?",
         widget_start_call: "Anruf starten",
+        widget_voice_label: "Stimme",
         footer_impressum: "Impressum",
         footer_datenschutz: "Datenschutz",
         footer_kuendigung: "Kündigungsvereinbarung",
@@ -157,6 +158,7 @@ const translations = {
         eila_reload: "Sayfayı yenile",
         widget_need_help: "Yardım?",
         widget_start_call: "Aramayı başlat",
+        widget_voice_label: "Ses",
         footer_impressum: "Künye",
         footer_datenschutz: "Gizlilik",
         footer_kuendigung: "İptal Koşulları",
@@ -241,6 +243,7 @@ const translations = {
         eila_reload: "حدّث الصفحة",
         widget_need_help: "مساعدة؟",
         widget_start_call: "بدء المكالمة",
+        widget_voice_label: "صوت",
         footer_impressum: "البيانات القانونية",
         footer_datenschutz: "خصوصية البيانات",
         footer_kuendigung: "شروط الإلغاء",
@@ -325,6 +328,7 @@ const translations = {
         eila_reload: "Reload page",
         widget_need_help: "Need help?",
         widget_start_call: "Start a call",
+        widget_voice_label: "Voice",
         footer_impressum: "Imprint",
         footer_datenschutz: "Privacy",
         footer_kuendigung: "Cancellation Policy",
@@ -409,6 +413,7 @@ const translations = {
         eila_reload: "صفحه را دوباره بارگذاری کنید",
         widget_need_help: "کمک؟",
         widget_start_call: "شروع تماس",
+        widget_voice_label: "صدا",
         footer_impressum: "اطلاعات قانونی",
         footer_datenschutz: "حریم خصوصی",
         footer_kuendigung: "شرایط لغو",
@@ -666,8 +671,10 @@ window.switchLang = function (lang) {
     if (window.ElevenLabsConvaiConfig) window.ElevenLabsConvaiConfig.locale = lang;
     else window.ElevenLabsConvaiConfig = { locale: lang };
     if (typeof window.__elevenlabsWidgetLang !== 'undefined') window.__elevenlabsWidgetLang = lang;
+    var voiceLabel = document.getElementById('voice-help-voice-label');
     var helpText = document.getElementById('voice-help-text');
     var helpBtn = document.getElementById('voice-help-call-btn');
+    if (voiceLabel && t.widget_voice_label) voiceLabel.textContent = t.widget_voice_label;
     if (helpText && t.widget_need_help) helpText.textContent = t.widget_need_help;
     if (helpBtn && t.widget_start_call) { helpBtn.textContent = t.widget_start_call; helpBtn.setAttribute('aria-label', t.widget_start_call); }
 };
@@ -855,9 +862,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (window.ElevenLabsConvaiConfig) window.ElevenLabsConvaiConfig.locale = initialLang;
     else window.ElevenLabsConvaiConfig = { locale: initialLang };
+    var voiceLabel = document.getElementById('voice-help-voice-label');
     var helpText = document.getElementById('voice-help-text');
     var helpBtn = document.getElementById('voice-help-call-btn');
     var t0 = translations[initialLang] || translations.de;
+    if (voiceLabel && t0.widget_voice_label) voiceLabel.textContent = t0.widget_voice_label;
     if (helpText && t0.widget_need_help) helpText.textContent = t0.widget_need_help;
     if (helpBtn && t0.widget_start_call) { helpBtn.textContent = t0.widget_start_call; helpBtn.setAttribute('aria-label', t0.widget_start_call); }
     if (helpBtn) {

@@ -14,7 +14,6 @@
     <meta property="og:image" content="assets/slide2.jpg.jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <!-- 🎤 ElevenLabs Widget (Unpkg) – Sprache wird unten per Script aus Browser gesetzt -->
     <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
     <!-- Google Analytics 4: G-XXXXXXXXXX durch die echte Messungs-ID ersetzen -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -469,37 +468,12 @@
     </div>
     <!-- Eigenes Hilfs-Label („Hilfe?“ / „Anruf starten“). Beim Klick → Consent (PC) oder direkt Widget (Handy). -->
     <div id="voice-help-box" class="voice-help-box">
+        <span id="voice-help-voice-label" class="voice-help-voice-label" aria-hidden="true">Stimme</span>
         <span id="voice-help-text" class="voice-help-text">Hilfe?</span>
         <button type="button" id="voice-help-call-btn" class="voice-help-call-btn" aria-label="Anruf starten">Anruf starten</button>
     </div>
-    <!-- 🤖 ElevenLabs Widget: Sprache = Browser (DE/TR/AR/EN/FA), wird nach Laden des Embed-Scripts erzeugt -->
-    <script>
-      (function() {
-        function initWidget() {
-          var widgetLang = window.currentLang || '';
-          if (!widgetLang) {
-            var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-            widgetLang = 'en';
-            if (lang.indexOf('de') === 0) widgetLang = 'de';
-            else if (lang.indexOf('tr') === 0) widgetLang = 'tr';
-            else if (lang.indexOf('ar') === 0) widgetLang = 'ar';
-            else if (lang.indexOf('fa') === 0) widgetLang = 'fa';
-            else if (lang.indexOf('en') === 0) widgetLang = 'en';
-          }
-          if (document.getElementById('elevenlabs-ayla')) return;
-          var el = document.createElement('elevenlabs-convai');
-          el.setAttribute('agent-id', 'agent_3201khxdc18wfrabzjjpqtes42jz');
-          el.setAttribute('language', widgetLang);
-          el.setAttribute('id', 'elevenlabs-ayla');
-          el.setAttribute('placement', 'bottom-right');
-          el.setAttribute('data-locale', widgetLang);
-          document.body.appendChild(el);
-          window.__elevenlabsWidgetLang = widgetLang;
-        }
-        if (document.readyState === 'complete') initWidget();
-        else window.addEventListener('load', initWidget);
-      })();
-    </script>
+    <!-- Ayla für Armada (ElevenLabs). Wie auf Localhost: Hilfe?, Need help?, Start a call, Anruf starten. -->
+    <elevenlabs-convai agent-id="agent_0001khww3y6pe0d9chhs6a00n8et" id="elevenlabs-ayla" placement="bottom-right" action-text="Need help?" start-call-text="Start a call"></elevenlabs-convai>
     <script src="script.js"></script>
     <script>
         function fixWaPosition() {

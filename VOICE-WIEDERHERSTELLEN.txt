@@ -1,0 +1,27 @@
+============================================
+  ANRUFE GEHEN NICHT MEHR? NUR NOCH TEXT?
+  SO STELLST DU VOICE WIEDER HER
+============================================
+
+Die Website setzt NIRGENDWO "nur Text". Die Einstellung liegt
+ausschließlich im ElevenLabs-Dashboard.
+
+SCHRITT FÜR SCHRITT (ca. 1 Minute):
+
+1. Öffne: https://elevenlabs.io
+2. Einloggen
+3. Links: "Conversational AI" oder "Agents" → deinen Agent (Ayla) anklicken
+4. Oben den Tab "Widget" wählen
+5. Nach dem Bereich "Interface" / "Schnittstelle" suchen
+6. Dort:
+   - "Chat mode" / "Chatmodus (nur Text)" / "Text-only" → AUS schalten
+   - Oder: "Voice only" / "Voice (default)" aktivieren
+7. Unten "Save" / "Speichern" klicken
+8. Website neu laden (F5) und "Anruf starten" testen
+
+Danach soll wieder ein echter Anruf (Mikrofon + Lautsprecher) möglich sein.
+
+Falls die Bezeichnungen anders sind: Alles, was "text only" oder
+"chat only" oder "ohne Stimme" bedeutet, muss AUS sein.
+
+============================================

@@ -111,6 +111,14 @@ body {
     gap: 8px;
     pointer-events: none;
 }
+.voice-help-box .voice-help-voice-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gold-dark);
+    opacity: 0.95;
+}
 .voice-help-box .voice-help-text {
     font-size: 0.9rem;
     color: var(--black);
