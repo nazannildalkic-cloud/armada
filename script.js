@@ -887,14 +887,23 @@ document.addEventListener('DOMContentLoaded', () => {
     function openAylaWidget() {
         var w = document.getElementById('elevenlabs-ayla');
         if (!w) return;
-        w.click();
-        try {
-            var root = w.shadowRoot;
-            if (root) {
-                var btn = root.querySelector('button') || root.querySelector('[role="button"]') || root.querySelector('a');
-                if (btn) btn.click();
-            }
-        } catch (e) {}
+        var lang = window.currentLang || document.documentElement.lang || 'de';
+        w.setAttribute('data-locale', lang);
+        w.setAttribute('locale', lang);
+        if (window.ElevenLabsConvaiConfig) window.ElevenLabsConvaiConfig.locale = lang;
+        else window.ElevenLabsConvaiConfig = { locale: lang };
+        var doOpen = function() {
+            w.click();
+            try {
+                var root = w.shadowRoot;
+                if (root) {
+                    var btn = root.querySelector('button') || root.querySelector('[role="button"]') || root.querySelector('a');
+                    if (btn) btn.click();
+                }
+            } catch (e) {}
+        };
+        if ('ontouchstart' in window) setTimeout(doOpen, 150);
+        else doOpen();
     }
     var consentModal = document.getElementById('consent-modal');
     var consentCancel = document.getElementById('consent-cancel');

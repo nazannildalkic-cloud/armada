@@ -1417,13 +1417,13 @@ footer a {
         right: 16px;
     }
     .voice-help-box .voice-help-text {
-        font-size: 0.85rem;
-        padding: 8px 12px;
+        font-size: 0.95rem;
+        padding: 10px 14px;
     }
     .voice-help-box .voice-help-call-btn {
-        min-height: 44px;
-        padding: 12px 18px !important;
-        font-size: 0.9rem !important;
+        min-height: 48px;
+        padding: 14px 20px !important;
+        font-size: 1rem !important;
     }
     body[dir="rtl"] .voice-help-box {
         right: auto;
@@ -1459,8 +1459,13 @@ footer a {
         right: 12px;
     }
     .voice-help-box .voice-help-text {
-        max-width: 160px;
-        font-size: 0.8rem;
+        max-width: 180px;
+        font-size: 0.9rem;
+        padding: 10px 12px;
+    }
+    .voice-help-box .voice-help-call-btn {
+        min-height: 48px;
+        font-size: 1rem !important;
     }
     body[dir="rtl"] .voice-help-box {
         left: 12px;

@@ -14,18 +14,19 @@
     <meta property="og:image" content="assets/slide2.jpg.jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <!-- 🌍 ElevenLabs Locale: vor dem Widget setzen (wird beim Sprachwechsel in script.js aktualisiert) -->
+    <!-- 🌍 ElevenLabs Locale: immer aus Browser/Seite, damit Widget in richtiger Sprache startet -->
     <script>
       (function() {
+        var nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
         var lang = (document.documentElement && document.documentElement.getAttribute('lang')) || '';
-        if (!lang) {
-          var nav = navigator.language || navigator.userLanguage || '';
+        if (!lang && nav) {
           if (nav.indexOf('de') === 0) lang = 'de';
           else if (nav.indexOf('tr') === 0) lang = 'tr';
           else if (nav.indexOf('ar') === 0) lang = 'ar';
           else if (nav.indexOf('fa') === 0) lang = 'fa';
-          else lang = 'en';
+          else if (nav.indexOf('en') === 0) lang = 'en';
         }
+        if (!lang) lang = 'de';
         window.ElevenLabsConvaiConfig = { locale: lang };
       })();
     </script>
