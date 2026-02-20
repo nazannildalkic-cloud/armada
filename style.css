@@ -1413,7 +1413,7 @@ footer a {
         padding: 12px 20px !important;
     }
     .voice-help-box {
-        bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+        bottom: calc(180px + env(safe-area-inset-bottom, 0px));
         right: 16px;
     }
     .voice-help-box .voice-help-text {
@@ -1455,7 +1455,7 @@ footer a {
         width: 100%;
     }
     .voice-help-box {
-        bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+        bottom: calc(175px + env(safe-area-inset-bottom, 0px));
         right: 12px;
     }
     .voice-help-box .voice-help-text {
@@ -1469,7 +1469,7 @@ footer a {
 
 @media (max-width: 360px) {
     .voice-help-box {
-        bottom: calc(68px + env(safe-area-inset-bottom, 0px));
+        bottom: calc(170px + env(safe-area-inset-bottom, 0px));
         right: 8px;
     }
     body[dir="rtl"] .voice-help-box {

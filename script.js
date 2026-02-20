@@ -81,6 +81,7 @@ const translations = {
         consent_text: "Mit Klick auf „Einverstanden“ und bei jeder Nutzung dieses Sprach-Assistenten willige ich ein, dass meine Gespräche aufgezeichnet, gespeichert und an Diensteanbieter weitergegeben werden können, wie in der Datenschutzerklärung beschrieben. Wenn Sie keine Aufzeichnung wünschen, nutzen Sie den Assistenten bitte nicht.",
         consent_cancel: "Abbrechen",
         consent_agree: "Einverstanden",
+        consent_mobile_hint: "Auf dem Handy: Seite über HTTPS öffnen (z. B. Ihre GitHub-Pages-URL) und „Mikrofon erlauben“ tippen, wenn der Browser fragt.",
         cal_mo: "Mo", cal_di: "Di", cal_mi: "Mi", cal_do: "Do", cal_fr: "Fr", cal_sa: "Sa", cal_so: "So"
     },
     tr: {
@@ -165,6 +166,7 @@ const translations = {
         consent_text: "\"Kabul ediyorum\"a tıklayarak ve bu ses asistanı her kullanıldığında, görüşmelerimin kaydedilmesini, saklanmasını ve Gizlilik Politikası'nda belirtildiği gibi üçüncü taraflara iletilmesini kabul ediyorum. Görüşmelerinizin kaydedilmesini istemiyorsanız lütfen kullanmayın.",
         consent_cancel: "İptal",
         consent_agree: "Kabul ediyorum",
+        consent_mobile_hint: "Mobilde: Sayfayı HTTPS ile açın (örn. GitHub Pages adresi) ve tarayıcı sorduğunda „Mikrofon izni ver“e dokunun.",
         cal_mo: "Pzt", cal_di: "Sal", cal_mi: "Çar", cal_do: "Per", cal_fr: "Cum", cal_sa: "Cmt", cal_so: "Paz"
     },
     ar: {
@@ -248,6 +250,7 @@ const translations = {
         consent_text: "بالنقر على \"موافق\" وفي كل مرة أتفاعل فيها مع هذا المساعد، أوافق على تسجيل محادثاتي وتخزينها ومشاركتها مع مقدمي خدمات طرف ثالث كما هو موضح في سياسة الخصوصية. إذا كنت لا ترغب في تسجيل المحادثات، يرجى عدم الاستخدام.",
         consent_cancel: "إلغاء",
         consent_agree: "موافق",
+        consent_mobile_hint: "على الجوال: افتح الصفحة عبر HTTPS وعند سؤال المتصفح انقر «السماح للميكروفون».",
         cal_mo: "ن", cal_di: "ث", cal_mi: "ر", cal_do: "خ", cal_fr: "ج", cal_sa: "س", cal_so: "ح"
     },
     en: {
@@ -331,6 +334,7 @@ const translations = {
         consent_text: "By clicking \"Agree\" and each time I interact with this AI agent, I consent to the recording, storage, and sharing of my communications with third-party service providers, as described in the Privacy Policy. If you do not wish to have your conversations recorded, please refrain from using this.",
         consent_cancel: "Cancel",
         consent_agree: "Agree",
+        consent_mobile_hint: "On mobile: Open the page via HTTPS (e.g. your GitHub Pages URL) and tap „Allow microphone“ when the browser asks.",
         cal_mo: "Mon", cal_di: "Tue", cal_mi: "Wed", cal_do: "Thu", cal_fr: "Fri", cal_sa: "Sat", cal_so: "Sun"
     },
     fa: {
@@ -414,6 +418,7 @@ const translations = {
         consent_text: "با کلیک روی «موافق» و هر بار که با این دستیار صوتی تعامل می‌کنم، به ضبط، ذخیره و اشتراک‌گذاری گفتگوهایم با ارائه‌دهندگان خدمات ثالث طبق سیاست حریم خصوصی رضایت می‌دهم. در صورت عدم تمایل به ضبط گفتگوها، لطفاً استفاده نکنید.",
         consent_cancel: "انصراف",
         consent_agree: "موافق",
+        consent_mobile_hint: "در موبایل: صفحه را با HTTPS باز کنید و وقتی مرورگر پرسید «اجازه میکروفون» را بزنید.",
         cal_mo: "د", cal_di: "س", cal_mi: "چ", cal_do: "پ", cal_fr: "ج", cal_sa: "ش", cal_so: "ی"
     }
 };
@@ -854,6 +859,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (helpBtn && t0.widget_start_call) { helpBtn.textContent = t0.widget_start_call; helpBtn.setAttribute('aria-label', t0.widget_start_call); }
     if (helpBtn) {
         helpBtn.addEventListener('click', function () {
+            var isMobile = 'ontouchstart' in window || window.innerWidth < 768;
+            if (isMobile) {
+                openAylaWidget();
+                return;
+            }
             var lang = window.currentLang || 'de';
             var t = translations[lang] || translations.de;
             var cm = document.getElementById('consent-modal');
@@ -878,11 +888,13 @@ document.addEventListener('DOMContentLoaded', () => {
         var w = document.getElementById('elevenlabs-ayla');
         if (!w) return;
         w.click();
-        var root = w.shadowRoot;
-        if (root) {
-            var btn = root.querySelector('button') || root.querySelector('[role="button"]') || root.querySelector('a');
-            if (btn) btn.click();
-        }
+        try {
+            var root = w.shadowRoot;
+            if (root) {
+                var btn = root.querySelector('button') || root.querySelector('[role="button"]') || root.querySelector('a');
+                if (btn) btn.click();
+            }
+        } catch (e) {}
     }
     var consentModal = document.getElementById('consent-modal');
     var consentCancel = document.getElementById('consent-cancel');
