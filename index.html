@@ -831,7 +831,7 @@ window.handleVoiceButtonClick = handleVoiceButtonClick;
     function initAndPlay(){
         if(!audio){
             audio = new Audio(MUSIC_SRC);
-            audio.volume = 0.22;
+            audio.volume = 0.12;
             audio.loop = true;
         }
         audio.play().then(function(){
@@ -870,7 +870,7 @@ window.handleVoiceButtonClick = handleVoiceButtonClick;
     window._onAylaEnd = function(){
         aylaActive = false;
         if(started && audio){
-            audio.volume = 0.22;
+            audio.volume = 0.12;
             audio.play().then(function(){
                 playing = true;
                 var b = getBtn();
@@ -892,14 +892,32 @@ window.handleVoiceButtonClick = handleVoiceButtonClick;
 
     /* ElevenLabs Events */
     document.addEventListener('DOMContentLoaded', function(){
-        ['elevenlabs-convai:call_started','elevenlabs-convai:start','call-started'].forEach(function(ev){
+        ['elevenlabs-convai:call_started','elevenlabs-convai:start','call-started','elevenlabs-convai:connect'].forEach(function(ev){
             document.addEventListener(ev, window._onAylaStart);
         });
-        ['elevenlabs-convai:call_ended','elevenlabs-convai:end','call-ended'].forEach(function(ev){
+        ['elevenlabs-convai:call_ended','elevenlabs-convai:end','call-ended','elevenlabs-convai:disconnect'].forEach(function(ev){
             document.addEventListener(ev, window._onAylaEnd);
         });
         var b = document.getElementById('music-toggle');
         if(b){ b.addEventListener('click', window._toggleMusic); }
+
+        /* MutationObserver – erkennt Ayla-Aktivität zuverlässig */
+        var widget = document.querySelector('elevenlabs-convai');
+        if(widget){
+            var wasActive = false;
+            var mo = new MutationObserver(function(){
+                var sr = widget.shadowRoot;
+                var isActive = sr && (
+                    sr.querySelector('[class*="active"]') ||
+                    sr.querySelector('[class*="calling"]') ||
+                    sr.querySelector('[class*="connected"]') ||
+                    sr.querySelector('button[class*="stop"]')
+                );
+                if(isActive && !wasActive){ window._onAylaStart(); wasActive = true; }
+                if(!isActive && wasActive){ window._onAylaEnd(); wasActive = false; }
+            });
+            mo.observe(widget, { attributes: true, childList: true, subtree: true });
+        }
     });
 })();
 /* ════════════════════════════════════════ */

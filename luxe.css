@@ -1448,7 +1448,9 @@ footer {
     .glass-nav {
         width: 100%; left: 0; top: 28px;
         border-radius: 0;
-        padding: 12px 4%;
+        padding: 8px 4%;
+        flex-wrap: wrap;
+        gap: 0;
     }
 
     .hamburger { display: flex; }
@@ -1458,7 +1460,7 @@ footer {
         position: absolute;
         top: 100%; left: 0;
         width: 100%;
-        background: rgba(6,12,31,0.95);
+        background: rgba(6,12,31,0.97);
         backdrop-filter: blur(25px);
         flex-direction: column;
         padding: 18px;
@@ -1469,12 +1471,23 @@ footer {
     .nav-links.open { display: flex; }
 
     .lang-switch {
-        position: absolute;
-        top: 100%; right: 0;
-        background: rgba(6,12,31,0.95);
-        padding: 10px 18px;
-        border-top: 1px solid rgba(212,175,55,0.12);
-        display: none;
+        display: flex !important;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 4px;
+        padding: 6px 0 4px;
+        border-top: 1px solid rgba(212,175,55,0.1);
+        margin-top: 4px;
+        background: transparent;
+        order: 99;
+    }
+
+    .lang-btn {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+        min-height: 34px;
+        min-width: 38px;
     }
 
     .nav-links.open ~ .lang-switch { display: flex; }
